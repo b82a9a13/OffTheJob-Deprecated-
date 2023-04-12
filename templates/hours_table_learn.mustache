@@ -1,0 +1,39 @@
+<button onclick="window.location.href='learner.php'" type="button" class="btn-primary mb-2 mr-2 p-2">{{btm}}</button>
+<h2 class="bold text-center">{{title}}</h2>
+<form method="POST" action="./classes/inc/otj_hours_learn.inc.php">
+    <div class="d-flex">
+        <p class="mr-2">{{lname}}: <input placeholder="name" name="name" value="{{username}}" disabled></p>
+        <p class="ml-2">{{qual}}: <input placeholder="Qualification" name="qualification" disabled value="{{coursename}}"></p>
+    </div>
+    <table class='table table-bordered table-striped table-hover' id="hourstable">
+        <thead>
+            <tr>
+                <th scope="col" class="px-2">{{date}}</th>
+                <th scope="col" class="px-2">{{activity}}</th>
+                <th scope="col" class="px-2">{{what_unit}}?</th>
+                <th scope="col" class="px-2">What impact will this have in your role?</th>
+                <th scope="col" class="px-2">{{duration}}</th>
+                <th scope="col" class="px-2">{{initial}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row" class="px-2"><input class="w-100" type="date" name="date" value="{{date_val}}"></td>
+                <td scope="row" class="px-2 w-25"><textarea class="w-100" name="activity">{{activity_val}}</textarea></td>
+                <td scope="row" class="px-2 w-25">
+                    <select class="w-100" name="whatlink" selected="{{whatlink_val}}">
+                        <option disabled selected>Pick a module</option>
+                        {{#whatlink_val_opt}}
+                        <option value="{{0}}" {{1}}>{{0}}</option>
+                        {{/whatlink_val_opt}}
+                    </select>
+                </td>
+                <td scope="row" class="px-2 w-50"><textarea class="w-100" name="impact">{{impact_val}}</textarea></td>
+                <td scope="row" class="px-2"><input name="duration" value="{{duration_val}}" style="width: 45px"></td>
+                <td scope="row" class="px-2"><input name="initial" value="{{initial_val}}" style="width: 45px"></td>
+            </tr>
+        </tbody>
+    </table>
+    <input id="courseid" name="courseid" type="int" hidden value="{{courseid}}">
+    <button type="submit" class="btn-primary mb-2 mr-2 p-2" name="submit">{{submit}}</button>
+</form>

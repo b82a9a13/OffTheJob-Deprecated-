@@ -1,0 +1,199 @@
+<div class="outer-div-learner-table">
+    <h2 class="bold">{{course}}.<br>{{title}}</h2>
+    <p>{{subheading}}</p>
+    <ol>
+        {{#array}}
+            <li id="lic{{3}}u{{1}}" class="mb-2" {{11}}>
+                <div class="inner-div-learner-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="text-left">
+                                    <h3 class="bold">{{0}}</h3>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="d-flex">
+                                        <div class="outer-div-learner-table" {{5}}>
+                                            <table class="box-default" onclick="window.location.href='otj_plan.php?userid={{1}}&courseid={{3}}'">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="px-2 text-center"><h3 class="bold">Training Plan</h3></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="text-center">
+                                                            <img id="btnplan{{3}}user{{1}}" src="./classes/img/TrainingPlan.png" style="width: 120px; height: 120px;">
+                                                        </th>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="outer-div-learner-table" {{5}}>
+                                            <table onclick="window.location.href='otj_hours.php?userid={{1}}&courseid={{3}}'" class="box-default">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="px-2 text-center"><h3 class="bold">Hours Log</h3></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="d-flex">
+                                                            <img src="./classes/img/HoursLog.png" style="width: 120px; height: 120px;" id="btncourse{{3}}user{{1}}hours">
+                                                            <canvas id="canvas{{3}}user{{1}}" width="120px" height="120px"></canvas>
+                                                            <div class="align-self-center">
+                                                                <h4>{{prog}}: {{6}}%</h4>
+                                                                <h4>{{expect}}: {{7}}%</h4>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="outer-div-learner-table" {{5}}>
+                                            <table class="box-default" onclick="window.location.href='otj_doc.php?userid={{1}}&courseid={{3}}'">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="px-2 text-center"><h3 class="bold">Monthly Activity Reports</h3></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="text-align: center;">
+                                                            <img src="./classes/img/Report.png" style="width: 120px; height: 120px;" id="btncourse{{3}}user{{1}}">
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="outer-div-learner-table" {{5}}>
+                                            <table class="box-default" onclick="window.location.href='otj_module.php?userid={{1}}&courseid={{3}}'">
+                                                <thead>
+                                                    <tr class="px-2">
+                                                        <th>
+                                                            <h3 class="bold text-center">Module Completion</h3>
+                                                        <th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="d-flex">
+                                                            <img src="./classes/img/Completion.png" style="width: 120px; height: 120px;">
+                                                            <canvas id="canvascomp{{3}}user{{1}}" width="120px"  height="120px"></canvas>
+                                                            <div class="align-self-center">
+                                                                <h4>{{prog}}: {{8}}%</h4>
+                                                                <h4>{{expect}}: {{9}}%</h4>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="outer-div-learner-table" {{4}}>
+                                            <table class="w-100 box-default" onclick="window.location.href='otj_setup.php?userid={{1}}&courseid={{3}}'">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">
+                                                            <h3 class="bold">First Setup</h3>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-center">
+                                                            <img src="./classes/img/Setup.png" style="width: 120px; height: 120px">
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="outer-div-learner-table" {{10}}>
+                                        <table class="w-100 box-default" onclick="window.location.href='ntasign.php?userid={{1}}&courseid={{3}}'">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">
+                                                        <h3 class="bold">Create Your Signature</h3>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <div>
+                                                            <img src="./classes/img/Signature.png" style="width: 120px; height: 120px;" id="btnsignc{{3}}u{{1}}">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </li>
+        {{/array}}
+    </ol>
+</div>
+<script>
+    let arrayper{{int}} = []
+    let arraymod{{int}} = []
+    {{#array}}
+        arrayper{{int}}.push([{{3}}, {{1}}, {{6}}, {{7}}]);
+        arraymod{{int}}.push([{{3}}, {{1}}, {{8}}, {{9}}]);
+    {{/array}}
+    arrayper{{int}}.forEach((arr) => {
+        let course = arr[0];
+        let user = arr[1];
+        let percent = arr[2] / 100;
+        let percent2 = arr[3] / 100;
+        let canvas = document.getElementById("canvas"+course+"user"+user);
+        let ctx = canvas.getContext("2d");
+        let int = 2;
+        let complete = int * percent;
+        let complete2 = int * percent2;
+        ctx.lineWidth = 30;
+        ctx.beginPath();
+        ctx.strokeStyle = 'red';
+        ctx.arc(60,60,30,complete*Math.PI,int*Math.PI);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.strokeStyle = 'orange';
+        ctx.arc(60,60,30,0,complete2*Math.PI);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.strokeStyle = 'green';
+        ctx.arc(60,60,30,0,complete*Math.PI);
+        ctx.stroke();
+    })
+    arraymod{{int}}.forEach((arr) => {
+        let course = arr[0];
+        let user = arr[1];
+        let percent = arr[2] / 100;
+        let percent2 = arr[3] / 100;
+        let canvas = document.getElementById("canvascomp"+course+"user"+user);
+        let ctx = canvas.getContext("2d");
+        let int = 2;
+        let complete = int * percent;
+        let complete2 = int * percent2;
+        ctx.lineWidth = 30;
+        ctx.beginPath();
+        ctx.strokeStyle = 'red';
+        ctx.arc(60,60,30,complete*Math.PI,int*Math.PI);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.strokeStyle = 'orange';
+        ctx.arc(60,60,30,0,complete2*Math.PI);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.strokeStyle = 'green';
+        ctx.arc(60,60,30,0,complete*Math.PI);
+        ctx.stroke();
+    })
+</script>

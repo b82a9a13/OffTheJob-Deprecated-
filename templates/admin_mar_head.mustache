@@ -1,0 +1,118 @@
+<h2 class="bold" {{draft_hidden}}>{{draft}}</h2>
+<div class="d-flex mb-2 p-2">
+    <form method="POST" action="./otj_doc_admin.php" {{draft_hidden}}>
+        <button class="btn btn-primary mb-2 mr-2 p-2">{{edit}}</button>
+        <input name="userid" value="{{userid}}" hidden readonly>
+        <input name="courseid" value="{{courseid}}" hidden readonly>
+        <input name="type" value="editdraft" hidden readonly>
+    </form>
+    <form method="POST" action="./classes/inc/otj_admin_resets.inc.php" {{draft_hidden}}>
+        <button class="btn btn-danger mb-2 mr-2 p-2" type="button" id="sub-btn-draft">{{delete}}</button>
+        <div class="modal" id="del_draft">
+            <div class="modal_content">
+                <div class="d-flex">
+                    <h2>Are you sure you want to delete this?</h2>
+                    <span class="close" id="close"></span>
+                </div>
+                <button class="btn btn-danger mb-2 mr-2 p-2" name="submit" type="submit">{{yes}}</button>
+                <button class="btn-primary btn mb-2 mr-2 p-2" type="button" id="no">{{no}}</button>
+            </div>
+        </div>
+        <input name="userid" value="{{userid}}" hidden readonly>
+        <input name="courseid" value="{{courseid}}" hidden readonly>
+        <input name="id" value="{{draftid}}" hidden readonly>
+        <input name="type" value="deldraft" hidden readonly>
+    </form>
+</div>
+<h2 class="bold" {{docs_hidden}}>{{docs}}</h2>
+<ol {{docs_hidden}}>   
+    {{#array}}
+    <li>
+        <div class="d-flex mb-2 p-2">
+            <h3 class="bold" {{docs_hidden}}>{{1}}</h3>
+            <form method="POST" action="./otj_doc_admin.php" {{docs_hidden}}>
+                <button class="btn btn-primary mb-2 mr-2 p-2" type="submit">{{edit}}</button>                
+                <input name="userid" value="{{userid}}" hidden readonly>
+                <input name="courseid" value="{{courseid}}" hidden readonly>
+                <input name="docid" value="{{0}}" hidden readonly>
+                <input name="type" value="editdoc" hidden readonly>
+            </form>
+            <form method="POST" action="./classes/inc/otj_admin_resets.inc.php" {{docs_hidden}}>
+                <button type="button" class="btn btn-danger mb-2 mr-2 p-2" id="sub-btnu{{userid}}c{{courseid}}d{{0}}">{{delete}}</button>
+                <div class="modal" id="del_modalu{{userid}}c{{courseid}}d{{0}}">
+                    <div class="modal_content">
+                        <div class="d-flex">
+                        <h2>Are you sure you want to delete this?</h2>
+                        <span class="close" id="closeu{{userid}}c{{courseid}}d{{0}}">&times;</span>
+                        </div>
+                        <button class="btn btn-danger mb-2 mr-2 p-2" type="submit" name="submit">{{yes}}</button>
+                        <button id="nou{{userid}}c{{courseid}}d{{0}}" class="btn btn-primary mb-2 mr-2 p-2" type="button">{{no}}</button>
+                    </div>
+                </div>
+                <input name="userid" value="{{userid}}" hidden readonly>
+                <input name="courseid" value="{{courseid}}" hidden readonly>
+                <input name="docid" value="{{0}}" hidden readonly>
+                <input name="type" value="deldoc" hidden readonly>
+            </form>
+        </div>
+    </li>
+    {{/array}}
+</ol>
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+    .modal_content{
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .close:hover, .close:focus{
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+<script>
+    let array = [];
+    {{#array}}
+    array.push(["del_modalu{{userid}}c{{courseid}}d{{0}}", "closeu{{userid}}c{{courseid}}d{{0}}", "nou{{userid}}c{{courseid}}d{{0}}", "sub-btnu{{userid}}c{{courseid}}d{{0}}"])
+    {{/array}}
+    array.push(['del_draft', 'close', 'no', 'sub-btn-draft'])
+    array.forEach((arr) => {
+        let modal = document.getElementById(arr[0]);
+        let span = document.getElementById(arr[1]);
+        let no = document.getElementById(arr[2]);
+        let btn = document.getElementById(arr[3]);
+        span.onclick = function (){
+            modal.style.display = "none";
+        };
+        btn.onclick = function (){
+            modal.style.display = "block";
+        };
+        window.onclick = function (event){
+            if(event.target == modal){
+                modal.style.display = "none";
+            }
+        };
+        no.onclick = function (){
+            modal.style.display = "none";
+        };
+    })
+</script>

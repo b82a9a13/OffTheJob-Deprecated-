@@ -1,0 +1,43 @@
+<button class="btn btn-primary mb-2 mr-2 p-2" onclick="window.location.href='./admin.php'">{{btm}}</button>
+<button class="btn btn-primary mb-2 mr-2 p-2" onclick="window.location.href='./admin_reports.php'">{{reset}}</button>
+<h1 class="bold text-center">{{title}}</h1>
+<div class="d-flex justify-content-center">
+    <div class="mb-2 mr-2 p-2 ml-2" onclick="tables_click()" style="cursor: pointer;">
+        <h2 class="text-center">{{tables}}</h2>
+        <img src="./classes/img/Table.png" style="width: 120px; height: 120px;"/>
+    </div>
+    <div class="mb-2 mr-2 mt-2 ml-2" onclick="chart_click()" style="cursor: pointer;">
+        <h2 class="text-center">{{charts}}</h2>
+        <img src="./classes/img/Chart.png" style="width: 120px; height: 120px;"/>
+    </div>
+    <div class="mb-2 mr-2 mt-2 ml-2" onclick="progress_click()" style="cursor: pointer;">
+        <h2 class="text-center">{{prog}}</h2>
+        <img src="./classes/img/TrackingClock.png" style="width: 120px; height: 120px;"/>
+    </div>
+</div>
+<script>
+    function progress_click(){
+        let progresssd = document.getElementById('report_progress')
+        if(progresssd.style.display == 'none'){
+            progresssd.style.display = 'inline-block' 
+        } else if(progresssd.style.display == 'inline-block'){
+            progresssd.style.display = 'none'
+        }
+    }
+    function tables_click(){
+        let tablesd = document.getElementById('report_table')
+        if(tablesd.style.display == 'none'){
+            tablesd.style.display = 'inline-block'
+        } else if(tablesd.style.display == 'inline-block'){
+            tablesd.style.display = 'none'
+        }
+    }
+    function chart_click(){
+        let chartsd = document.getElementById('report_chart')
+        if(chartsd.style.display == 'none'){
+            chartsd.style.display = 'inline-block'
+        } else if(chartsd.style.display == 'inline-block'){
+            chartsd.style.display = 'none'
+        }
+    }
+</script>

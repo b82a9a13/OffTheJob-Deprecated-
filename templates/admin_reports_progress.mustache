@@ -1,0 +1,148 @@
+<div id="report_progress" style="display: none;" class="div-border-admin-report">
+<h2 class="bold">{{comp_p}}</h2>
+<div>
+    <h4>{{comp_ptitle}}</h4>
+    <select id="filteropt">
+        <option default disabled selected>{{choose_ac}}</option>
+        {{#filarray}}
+        <option value="{{0}}">{{1}}</option>
+        {{/filarray}}
+    </select>
+    <button class="btn btn-primary mb-2 mr-2 p-2" onclick="filter()" id="filter">{{filter}}</button>
+    <button class="btn btn-primary mb-2 mr-2 p-2" onclick="showall()" id="showall">{{show_all}}</button>
+</div>
+{{#array}}
+<div class="course{{7}} inner-div-admin-report" style="display: none;">
+    <h4 class="bold">{{0}} - {{1}}</h4>
+    <div class="d-flex">
+        <div>
+            <h4 class="text-center">{{hourslog}}</h4>
+            <div class="d-flex">
+                <canvas id="hourcanvas{{7}}user{{6}}" width="120px" height="120px"></canvas>
+                <div class="align-self-center">
+                    <p>{{prog}}: {{2}}%</p>
+                    <p>{{expect}}: {{3}}%</p>
+                </div>
+            </div>
+        </div>
+        <span style="height: 100px; width: 2px; color: black; background: black;" {{5}} class="mt-2 mr-2 ml-2"></span>
+        <div>
+            <h4 class="text-center">{{modules}}</h4>
+            <div class="d-flex">
+                <canvas id="modcanvas{{7}}user{{6}}" width="120px" height="120px"></canvas>
+                <div class="align-self-center">
+                    <p>{{prog}}: {{4}}%</p>
+                    <p>{{expect}}: {{5}}%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/array}}
+</div>
+<script>
+    let arrayper = [];
+    let arraymod = [];
+    {{#array}}
+        arrayper.push([{{7}}, {{6}}, {{2}}, {{3}}])
+        arraymod.push([{{7}}, {{6}}, {{4}}, {{5}}])
+    {{/array}}
+    arrayper.forEach((arr) => {
+        let course = arr[0]
+        let user = arr[1]
+        let percent = arr[2] / 100
+        let percent2 = arr[3] / 100
+        let canvas = document.getElementById("hourcanvas"+course+"user"+user)
+        let ctx = canvas.getContext("2d");
+        let int = 2
+        let complete = int * percent
+        let complete2 = int * percent2
+        ctx.lineWidth = 30
+        ctx.beginPath()
+        ctx.strokeStyle = 'red'
+        ctx.arc(60, 60, 30, complete*Math.PI,int*Math.PI)
+        ctx.stroke()
+        ctx.beginPath()
+        ctx.strokeStyle = 'orange'
+        ctx.arc(60, 60, 30, 0, complete2*Math.PI)
+        ctx.stroke()
+        ctx.beginPath()
+        ctx.strokeStyle = 'green'
+        ctx.arc(60, 60, 30, 0, complete*Math.PI)
+        ctx.stroke()
+    })
+    arraymod.forEach((arr) => {
+        let course = arr[0]
+        let user = arr[1]
+        let percent = arr[2] / 100
+        let percent2 = arr[3] / 100
+        let canvas = document.getElementById("modcanvas"+course+"user"+user)
+        let ctx = canvas.getContext("2d");
+        let int = 2
+        let complete = int * percent
+        let complete2 = int * percent2
+        ctx.lineWidth = 30
+        ctx.beginPath()
+        ctx.strokeStyle = 'red'
+        ctx.arc(60, 60, 30, complete*Math.PI,int*Math.PI)
+        ctx.stroke()
+        ctx.beginPath()
+        ctx.strokeStyle = 'orange'
+        ctx.arc(60, 60, 30, 0, complete2*Math.PI)
+        ctx.stroke()
+        ctx.beginPath()
+        ctx.strokeStyle = 'green'
+        ctx.arc(60, 60, 30, 0, complete*Math.PI)
+        ctx.stroke()
+    })
+
+    let values = [];
+    {{#filarray}}
+        values.push(["course{{0}}"])
+    {{/filarray}}
+    let btn = document.getElementById('showall')
+    function showall(){
+        let visibility = '';
+        if(btn.innerHTML == '{{show_all}}'){
+            btn.innerHTML = '{{hide_all}}'
+            btn.className = 'btn btn-secondary mb-2 mr-2 p-2'
+            visibility = 'block'
+        } else if(btn.innerHTML == '{{hide_all}}'){
+            btn.innerHTML = '{{show_all}}'
+            btn.className = 'btn btn-primary mb-2 mr-2 p-2'
+            visibility = 'none'
+        }
+        values.forEach((arra) => {
+            let length = document.getElementsByClassName(arra[0]).length
+            let inter = 0
+            while(inter < length){
+                document.getElementsByClassName(arra[0])[inter].style.display = visibility
+                inter++
+            }
+        })
+    }
+
+    function filter(){
+        if(filteropt.value > 0){
+            let btn = document.getElementById('showall')
+            btn.innerHTML = '{{show_all}}'
+            btn.className = 'btn btn-primary mb-2 mr-2 p-2'
+            values.forEach((arra) => {
+                let length = document.getElementsByClassName(arra[0]).length
+                let inter = 0
+                while(inter < length){
+                    document.getElementsByClassName(arra[0])[inter].style.display = 'none'
+                    inter++
+                }
+            })
+            let fillength = document.getElementsByClassName('course'+filteropt.value).length
+            let filinter = 0
+            while(filinter < fillength){
+                document.getElementsByClassName('course'+filteropt.value)[filinter].style.display = 'block'
+                console.log(filinter)
+                filinter++
+            }
+            console.log(filteropt.value)
+        }
+    }
+</script>

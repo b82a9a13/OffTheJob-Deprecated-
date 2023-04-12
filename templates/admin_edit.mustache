@@ -1,0 +1,279 @@
+<h2 class="bold">{{select_todo}} - {{username}} - {{coursename}}</h2>
+<ul style="list-style: none;">
+    <li class="d-flex text-center">
+        <h3 id="h3">{{initial_s}}</h3>
+        <form action="./otj_setup_admin.php" method="POST">
+            <button class="btn btn-primary mb-2 mr-2 p-2" name="submit" type="submit" {{initial_disable}}>{{edit}}</button>
+            <input hidden readonly value="{{userid}}" name="userid">
+            <input hidden readonly value="{{courseid}}" name="courseid">
+        </form>
+        <button class="btn btn-primary mb-2 mr-2 p-2" id="del" onclick="initial_setup_click()" {{initial_disable}}>{{reset}}</button>
+    </li>
+    <li class="d-flex text-center">
+        <h3 id="h3">{{learner_sign}}</h3>
+        <button class="btn btn-primary mb-2 mr-2 p-2" onclick="learn_sign_click()" {{learner_disable}}>{{view}}</button>
+        <button class="btn btn-primary mb-2 mr-2 p-2" id="del" onclick="learn_sign_del_click()" {{learner_disable}}>{{reset}}</button>
+    </li>
+    <li class="d-flex text-center">
+        <h3 id="h3">{{nta_sign}}</h3>
+        <button class="btn btn-primary mb-2 mr-2 p-2" onclick="nta_sign_click()" {{nta_disable}}>{{view}}</button>
+        <button class="btn btn-primary mb-2 mr-2 p-2" id="del" onclick="nta_sign_del_click()" {{nta_disable}}>{{reset}}</button>
+    </li>
+    <li class="d-flex text-center">
+        <h3 id="h3">{{train_p}}</h3>
+        <form action="./otj_plan_admin.php" method="POST">
+            <button class="btn btn-primary mb-2 mr-2 p-2" name="submit" type="submit" {{plan_disable}}>{{edit}}</button>
+            <input hidden readonly value="{{userid}}" name="userid">
+            <input hidden readonly value="{{courseid}}" name="courseid">
+        </form>
+        <button class="btn btn-primary mb-2 mr-2 p-2" id="del" onclick="train_del_click()" {{plan_disable}}>{{reset}}</button>
+    </li>
+    <li class="d-flex text-center">
+        <h3 id="h3">{{activity_r}}</h3>
+        <button class="btn btn-primary mb-2 mr-2 p-2" onclick="window.location.href='./otj_doc_admin.php?userid={{userid}}&courseid={{courseid}}'">{{view}}</button>
+    </li>
+    <li class="d-flex text-center">
+        <h3 id="h3">{{hours_log}}</h3>
+        <button class="btn btn-primary mb-2 mr-2 p-2" onclick="window.location.href='./otj_hours_admin.php?userid={{userid}}&courseid={{courseid}}'">{{view}}</button>
+    </li>
+</ul>
+<div class="modal" id="modal_learn">
+    <div class="modal_content">
+        <span class="modal_close" id="span_learn">&times;</span>
+        <img src='{{learnsign}}'/>
+        <button class="btn btn-primary mb-2 mr-2 p-2" id="learn_close">{{close}}</button>
+    </div>
+</div>
+<div class="modal" id="modal_nta">
+    <div class="modal_content">
+        <span class="modal_close" id="span_nta">&times;</span>
+        <img src="{{ntasign}}"/>
+        <button class="btn btn-primary mb-2 mr-2 p-2" id="nta_close">{{close}}</button>
+    </div>
+</div>
+<div class="modal" id="modal_intial_del">
+    <div class="modal_content">
+        <span class="modal_close" id="span_initial_del">&times;</span>
+        <table class="table table-bordered table-striped table-hover">
+            <tr>
+                <th class="px-2">{{total_m}}</th>
+                <th class="px-2">{{otjh}}</th>
+                <th class="px-2">{{eands}}</th>
+                <th class="px-2">{{coach}}</th>
+                <th class="px-2">{{morm}}</th>
+            </tr>
+            <tr>
+                <td class="px-2">{{totalmonths}}</td>
+                <td class="px-2">{{otjhours}}</td>
+                <td class="px-2">{{employerorstore}}</td>
+                <td class="px-2">{{coach}}</td>
+                <td class="px-2">{{mom}}</td>
+            </tr>
+            <tr>
+                <th class="px-2">{{startdate}}</th>
+                <th class="px-2">{{contract_pw}}</th>
+                <th class="px-2">{{alw}}</th>
+                <th class="px-2">{{train_p}}</th>
+            </tr>
+            <tr>
+                <td class="px-2">{{startdate}}</td>
+                <td class="px-2">{{hoursperweek}}</td>
+                <td class="px-2">{{annuallw}}</td>
+                <td class="px-2">{{planfilename}}</td>
+            </tr>
+        </table>
+        <p>{{nta_sign}}</p>
+        <img src="{{ntasign}}"/>
+        <h1 class="bold text-danger">{{reset_initial}}</h1>
+        <form action="./classes/inc/otj_admin_resets.inc.php" method="POST">
+        <button type="submit" name="submit" class="btn btn-primary mb-2 mr-2 p-2" id="del">{{yes}}</button>
+        <button type="button" class="btn btn-primary mb-2 mr-2 p-2" id="initial_no">{{no}}</button>
+        <input hidden readonly value="{{userid}}" name="userid">
+        <input hidden readonly value="{{courseid}}" name="courseid">
+        <input hidden readonly value="initialdelete" name="type">
+        </form>
+    </div>
+</div>
+<div class="modal" id="modal_learn_del">
+    <div class="modal_content">
+        <span class="modal_close" id="span_learn_del">&times;</span>
+        <img src="{{learnsign}}"/>
+        <h1 class="bold text-danger">{{reset_sign}}</h1>
+        <form action="./classes/inc/otj_admin_resets.inc.php" method="POST">
+        <button type="submit" class="btn btn-primary mb-2 mr-2 p-2" id="del" name="submit">{{yes}}</button>
+        <button type="button" class="btn btn-primary mb-2 mr-2 p-2" id="learn_no">{{no}}</button>
+        <input hidden readonly value="{{userid}}" name="userid">
+        <input hidden readonly value="{{courseid}}" name="courseid">
+        <input hidden readonly value="learn" name="type">
+        </form>
+    </div>
+</div>
+<div class="modal" id="modal_nta_del">
+    <div class="modal_content">
+        <span class="modal_close" id="span_nta_del">&times;</span>
+        <img src="{{ntasign}}"/>
+        <h1 class="bold text-danger">{{reset_sign}}</h1>
+        <form action="./classes/inc/otj_admin_resets.inc.php" method="POST">
+        <button type="submit" class="btn btn-primary mb-2 mr-2 p-2" id="del" name="submit">{{yes}}</button>
+        <button type="button" class="btn btn-primary mb-2 mr-2 p-2" id="nta_no">{{no}}</button>
+        <input hidden readonly value="{{userid}}" name="userid">
+        <input hidden readonly value="{{courseid}}" name="courseid">
+        <input hidden readonly value="nta" name="type">
+        </form>
+    </div>
+</div>
+<div class="modal" id="modal_train_del">
+    <div class="modal_content">
+        <span class="modal_close" id="span_train_del">&times;</span>
+        <table class="table table-striped table-bordered table-hover">
+            <tr>
+                <th class="px-2">{{name}}</th>
+                <th class="px-2">{{employer}}</th>
+                <th class="px-2">{{startdate}}</th>
+                <th class="px-2">{{fsped}}</th>
+            </tr>
+            <tr>
+                <td class="px-2">{{plan_name}}</td>
+                <td class="px-2">{{plan_employer}}</td>
+                <td class="px-2">{{plan_startdate}}</td>
+                <td class="px-2">{{plan_plannedendd}}</td>
+            </tr>
+            <tr>
+                <th class="px-2">{{lop}}</th>
+                <th class="px-2">{{cap_otjh}}</th>
+                <th class="px-2">{{epao}}</th>
+                <th class="px-2">{{fund_source}}</th>
+            </tr>
+            <tr>
+                <td class="px-2">{{plan_lengthoprog}}</td>
+                <td class="px-2">{{plan_otjh}}</td>
+                <td class="px-2">{{plan_epao}}</td>
+                <td class="px-2">{{plan_fundsource}}</td>
+            </tr>
+        </table>
+        <h1 class="bold text-danger">{{reset_plan}}</h1>
+        <form action='./classes/inc/otj_admin_resets.inc.php' method='POST'>
+            <button type="submit" name="submit" class="btn btn-primary mb-2 mr-2 p-2" id="del">{{yes}}</button>
+            <button type="button" class="btn btn-primary mb-2 mr-2 p-2" id="train_no">{{no}}</button>
+            <input hidden readonly value="{{userid}}" name="userid">
+            <input hidden readonly value="{{courseid}}" name="courseid">
+            <input hidden readonly value="traindelete" name="type">
+        </form>
+    </div>
+</div>
+<style>
+    .modal{
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+    .modal_content{
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+    .modal_close:hover, .modal_close:focus{
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .modal_close{
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    #h3{
+        width: 240px;
+    }
+    #del{
+        background: red;
+    }
+</style>
+<script>
+    let modalinitial = document.getElementById('modal_intial_del')
+    let spaninitial = document.getElementById('span_initial_del')
+    let initialno = document.getElementById('initial_no')
+    spaninitial.onclick = function(){
+        modalinitial.style.display = "none";
+    }
+    initialno.onclick = function(){
+        modalinitial.style.display = "none";
+    }
+    function initial_setup_click(){
+        modalinitial.style.display = "block";
+    }
+
+    let modallearn = document.getElementById('modal_learn')
+    let spanlearn = document.getElementById('span_learn')
+    let learnclose = document.getElementById('learn_close')
+    spanlearn.onclick = function(){
+        modallearn.style.display = "none";
+    }
+    learnclose.onclick = function(){
+        modallearn.style.display = "none";
+    }
+    function learn_sign_click(){
+        modallearn.style.display = "block";
+    }
+
+    let modallearndel = document.getElementById('modal_learn_del')
+    let spanlearndel = document.getElementById('span_learn_del')
+    let learnno = document.getElementById('learn_no')
+    spanlearndel.onclick = function(){
+        modallearndel.style.display = "none";
+    }
+    learnno.onclick = function(){
+        modallearndel.style.display = "none";
+    }
+    function learn_sign_del_click(){
+        modallearndel.style.display = "block";
+    }
+
+    let modalnta = document.getElementById('modal_nta')
+    let spannta = document.getElementById('span_nta')
+    let ntaclose = document.getElementById('nta_close')
+    spannta.onclick = function(){
+        modalnta.style.display = "none";
+    }
+    ntaclose.onclick = function(){
+        modalnta.style.display = "none";
+    }
+    function nta_sign_click(){
+        modalnta.style.display = "block";
+    }
+
+    let modalntadel = document.getElementById('modal_nta_del')
+    let spanntadel = document.getElementById('span_nta_del')
+    let ntano = document.getElementById('nta_no')
+    spanntadel.onclick = function(){
+        modalntadel.style.display = "none";
+    }
+    ntano.onclick = function(){
+        modalntadel.style.display = "none";
+    }
+    function nta_sign_del_click(){
+        modalntadel.style.display = "block";
+    }
+
+    let modaltraindel = document.getElementById('modal_train_del')
+    let spantraindel = document.getElementById('span_train_del')
+    let trainno = document.getElementById('train_no')
+    spantraindel.onclick = function(){
+        modaltraindel.style.display = "none";
+    }
+    trainno.onclick = function(){
+        modaltraindel.style.display = "none";
+    }
+    function train_del_click(){
+        modaltraindel.style.display = "block";
+    }
+</script>

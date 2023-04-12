@@ -1,0 +1,233 @@
+<!-- Monthly Activity Record --->
+<form method="POST" action="./classes/inc/otj_docs_learn.inc.php">
+<div id="mar_div">
+    {{#array}}
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th scope="col" class="px-2 text-center">{{apprentice}}</th>
+                <th scope="col" class="px-2 text-center">{{reviewd}}</th>
+                <th scope="col" class="px-2 text-center">{{standard}}</th>
+                <th scope="col" class="px-2 text-center">{{eands}}</th>
+                <th scope="col" class="px-2 text-center">{{coach}}</th>
+                <th scope="col" class="px-2 text-center">{{morm}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row" class="px-2"><input class="w-100" name="apprentice" value="{{0}}" readonly disabled></td>
+                <td class="px-2"><input class="w-100" name="reviewdate" type="date" value="{{1}}" readonly disabled></td>
+                <td class="px-2"><input class="w-100" name="standard" value="{{2}}" readonly disabled></td>
+                <td class="px-2"><input class="w-100" name="employerandstore" value="{{3}}" readonly disabled></td>
+                <td class="px-2"><input class="w-100" name="coach" value="{{4}}" readonly disabled></td>
+                <td class="px-2"><input class="w-100" name="managerormentor" value="{{5}}" readonly disabled></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th colspan="6" class="px-2 text-center">{{sop}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row" class="px-2">OTJ % Progress to date</th>
+                <td scope="row" class="px-2"><input class="w-100" placeholder="{{percent_prog}}" name="progress" value="{{6}}" readonly disabled></td>
+                <th scope="row" class="px-2">OTJ % Expected Progress according to Training Plan</th>
+                <td scope="row" class="px-2"><input class="w-100" name="progexpected" value="{{27}}" readonly disabled></td>
+                <th scope="row" class="px-2">Comments</th>
+                <td scope="row" class="px-2 w-50"><textarea class="w-100" name="progcom" readonly disabled>{{30}}</textarea></td>
+            </tr>
+            <tr>
+                <th scope="row" class="px-2">OTJH Completed</th>
+                <td scope="row" class="px-2"><input class="w-100" placeholder="{{otj_hours}}" name="hours" value="{{7}}" readonly disabled></td>
+                <th scope="row" class="px-2">Expected OTJH as per Training Plan</th>
+                <td scope="row" class="px-2"><input class="w-100" name="otjhexpected" value="{{28}}" readonly disabled></td>
+                <th scope="row" class="px-2">Comments</th>
+                <td scope="row" class="px-2 w-50"><textarea class="w-100" name="otjhcom" readonly disabled>{{31}}</textarea></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th scope="col" class="px-2 w-50 text-center">{{recap_act}}</th>
+                <th scope="col" class="px-2 w-50 text-center">{{impactu}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <td scope="row" class="px-2"><textarea class="w-100" name="recap" readonly disabled>{{8}}</textarea></td>
+            <td scope="row" class="px-2"><textarea class="w-100" name="impact" readonly disabled>{{9}}</textarea></td>
+        </tbody>
+    </table>
+    <br>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th scope="col" class="px-2 w-75 text-center" readonly disabled>{{detail_tal}}</th>
+                <th scope="col" class="px-2 w-25 text-center" readonly disabled>{{mod_ksb}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row" class="px-2"><textarea class="w-100" name="details" readonly disabled>{{10}}</textarea></td>
+                <td scope="row" class="px-2"><textarea class="w-100" name="detailsksb" readonly disabled>{{11}}</textarea></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th scope="col" class="px-2 w-100 text-center">{{impact_w}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row" class="px-2"><textarea class="w-100" name="detailimpact" readonly disabled>{{12}}</textarea></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th scope="col" class="px-2 w-100 text-center" colspan="3">{{fsp}}</th>
+            </tr>
+            <tr>
+                <th scope="col" class="px-2"></th>
+                <th scope="col" class="px-2 text-center">{{learn_t}}</th>
+                <th scope="col" class="px-2 text-center">{{target_next}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row" class="px-2 text-center">{{math}}</th>
+                <td scope="row" class="px-2"><textarea class="w-100" name="todaymath" readonly disabled>{{13}}</textarea></td>
+                <td scope="row" class="px-2"><textarea class="w-100" name="nextmath" readonly disabled>{{14}}</textarea></td>
+            </tr>
+            <tr>
+                <th scope="row" class="px-2 text-center">English</th>
+                <td scope="row" class="px-2"><textarea class="w-100" name="todayenglish" readonly disabled>{{15}}</textarea></td>
+                <td scope="row" class="px-2"><textarea class="w-100" name="nextenglish" readonly disabled>{{16}}</textarea></td>
+            </tr>
+            <tr>
+                <th scope="row" class="px-2 text-center">{{ict}}</th>
+                <td scope="row" class="px-2"><textarea class="w-100" name="todayict" readonly disabled>{{17}}</textarea></td>
+                <td scope="row" class="px-2"><textarea class="w-100" name="nextict" readonly disabled>{{18}}</textarea></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <th scope="col" class="px-2 text-center">ALN (Additional Learner Needs) Support delivered today</th>
+        </thead>
+        <tbody>
+            <td scope="row" class="px-2"><textarea class="w-100" name="alnsupport" readonly disabled>{{29}}</textarea></td>
+        </tbody>
+    </table>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th scope="col" class="px-2 w-75 text-center">{{act_sum}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row" class="px-2 w-75"><textarea class="w-100" name="activity" readonly disabled>{{19}}</textarea></td>
+            </tr>
+        </tbody>
+    </table>    
+    <br>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <th scope="col" class="px-2 text-center">{{safeguarding}}</th>
+        </thead>
+        <tbody>
+            <td scope="row" class="px-2"><textarea class="w-100" name="safeguarding" readonly disabled>{{21}}</textarea></td>
+        </tbody>
+    </table>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th scope="col" class="px-2 w-100 text-center">{{agreed_act}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row" class="px-2 w-100"><textarea class="w-100" name="agreedaction" readonly disabled>{{21}}</textarea></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th scope="row" class="px-2 w-25 text-center align-middle">{{employer_comment}}</th>
+                <td scope="row" class="px-2 w-75">
+                    <iframe src="{{23}}" class="w-100" style="height: 600px;"></iframe>
+                </td>
+            </tr>
+        <thead>
+    </table>
+    <br>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th scope="col" class="px-2 w-100 text-center align-middle">{{apprentice_comment}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row" class="px-2 w-100"><textarea class="w-100" name="apprenticecomment">{{24}}</textarea></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="d-flex w-100">
+        <div class="p-2">
+            <p>{{learner_sign}}</p>
+            <img src="{{learnsign}}" width="250px" height="100px" class="learn-sign0" {{hidden1}}>
+            <button class="btn-primary mb-2 mr-2 p-2" type="button" onclick="learnsign()" id="learn-sign-btn" {{hidden}}>Add Signature</button>
+            <p class="mt-2 learn-sign1" {{hidden1}}>{{date}}: <input type="date" name="learnsigndate" class="learn-sign2" value="{{26}}" {{hidden1}}></p>
+        </div>
+        <div class="p-2">
+            <p>{{nta_sign}}</p>
+            <img src="{{ntasign}}" width="250px" height="100px" class="nta-sign0" {{hidden3}}>
+            <p class="mt-2 nta-sign1" {{hidden3}}>{{date}}: <input type="date" name="ntasigndate" class="nta-sign2" value="{{25}}" {{hidden3}} readony disabled></p>
+        </div>
+    </div>
+    {{/array}}
+    <input name="courseid" hidden value="{{courseid}}">
+    <input name="id" hidden value="{{id}}">
+    <button class="btn btn-primary mb-2 mr-2 p-2 w-100 bold" name="submit" type="submit">{{submit}}</button>
+</div>
+</form>
+<script>
+    function learnsign(){
+        document.querySelector('.learn-sign0').hidden = false;
+        document.querySelector('.learn-sign1').hidden = false;
+        document.querySelector('.learn-sign2').hidden = false;
+        document.getElementById('learn-sign-btn').hidden = true;
+    }
+</script>
+<style>
+    #sign{
+        width: 450px;
+        height: 225px;
+    }
+</style>

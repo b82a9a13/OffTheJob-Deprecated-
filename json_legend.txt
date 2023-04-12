@@ -1,0 +1,23 @@
+This is the legend for the json files
+
+// Module section
+psd = Planned Start Date
+rsd = Revised Start Date
+ped = Planned End Date
+red = Revised End Date
+mw = Module Weighting
+potjh = Planned OTJH
+mod = Method of Delivery
+otjt = OTJ Tasks 
+aotjhc = Actaul OTJ completed
+
+//fsd section
+fsd = Function Skills Development
+fs = Functional Skills
+mod = Method of delivery
+sd = Start Date
+ped = Planned End Date
+aed = Actual End Date
+usd = Upskill Start Date
+uped = Upskill Planned End Date
+ad = Actual End/Achievement Date

@@ -1,0 +1,10 @@
+<h2 class="bold text-center">{{title}}</h2>
+<div class="outer-div-learner-table">
+    {{#array}}
+    <h3>{{hi}} {{1}}. <br>{{desc}}</h3>
+    <p>{{instruct}}</p>
+    {{/array}}
+    {{#courses}}
+    <button onclick="course_click({{2}})" id="btn{{2}}" class="btn-primary mb-2 mr-2 p-2">{{0}}</button>
+    {{/courses}}
+</div>

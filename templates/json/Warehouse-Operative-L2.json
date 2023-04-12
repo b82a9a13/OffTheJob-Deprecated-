@@ -1,0 +1,100 @@
+{
+    "name": "Warehourse Operative L2",
+    "modules": [
+        {
+            "name": "Knowledge and understanding of organisation",
+            "psd": "",
+            "rsd": "",
+            "ped": "",
+            "red": "",
+            "mw": "20",
+            "potjh": "",
+            "mod": "Elearning, F2F, Remote, Workshop, Research, Written tasks, Assignments, Observations",
+            "otjt": "",
+            "aotjhc": ""
+        },
+        {
+            "name": "Enviromental Management",
+            "psd": "",
+            "rsd": "",
+            "ped": "",
+            "red": "",
+            "mw": "20",
+            "potjh": "",
+            "mod": "Elearning, F2F, Remote, Workshop, Research, Written tasks, Assignments, Observations",
+            "otjt": "",
+            "aotjhc": ""
+        },
+        {
+            "name": "Working in accordance with warehousing system and processes",
+            "psd": "",
+            "rsd": "",
+            "ped": "",
+            "red": "",
+            "mw": "20",
+            "potjh": "",
+            "mod": "Elearning, F2F, Remote, Workshop, Research, Written tasks, Assignments, Observations",
+            "otjt": "",
+            "aotjhc": ""
+        },
+        {
+            "name": "Awareness of supply chain industry and own organisation",
+            "psd": "",
+            "rsd": "",
+            "ped": "",
+            "red": "",
+            "mw": "20",
+            "potjh": "",
+            "mod": "Elearning, F2F, Remote, Workshop, Research, Written tasks, Assignments, Observations",
+            "otjt": "",
+            "aotjhc": ""
+        },
+        {
+            "name": "Building Relationships",
+            "psd": "",
+            "rsd": "",
+            "ped": "",
+            "red": "",
+            "mw": "20",
+            "potjh": "",
+            "mod": "Elearning, F2F, Remote, Workshop, Research, Written tasks, Assignments, Observations",
+            "otjt": "",
+            "aotjhc": ""
+        }
+    ],
+    "fsd": [
+        {
+            "fs": "Maths",
+            "level": "",
+            "mod": "BKSB & F2F & Remote",
+            "sd": "",
+            "ped": "",
+            "aed": "",
+            "usd": "",
+            "uped": "",
+            "ad": ""
+        },
+        {
+            "fs": "English",
+            "level": "",
+            "mod": "BKSB & F2F & Remote",
+            "sd": "",
+            "ped": "",
+            "aed": "",
+            "usd": "",
+            "uped": "",
+            "ad": ""
+        },
+        {
+            "fs": "ICT",
+            "level": "",
+            "mod": "BKSB & F2F & Remote",
+            "sd": "",
+            "ped": "",
+            "aed": "",
+            "usd": "",
+            "uped": "",
+            "ad": ""
+        }
+    ]
+}

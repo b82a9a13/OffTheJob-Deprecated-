@@ -1,0 +1,228 @@
+<!-- Monthly Activity Record --->
+<h2 class="bold text-danger text-center"{{error_hidden}}>Invalid Inputs are Highlighted in Red!</h2>
+<form method="POST" action="./classes/inc/otj_admin_doc.inc.php" enctype="multipart/form-data">
+<div id="mar_div">
+    {{#array}}
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th scope="col" class="px-2 text-center">{{apprentice}}</th>
+                <th scope="col" class="px-2 text-center">{{reviewd}}</th>
+                <th scope="col" class="px-2 text-center">{{standard}}</th>
+                <th scope="col" class="px-2 text-center">{{eands}}</th>
+                <th scope="col" class="px-2 text-center">{{coach}}</th>
+                <th scope="col" class="px-2 text-center">{{morm}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row" class="px-2" style="background: {{apprentice_red}};"><input class="w-100" name="apprentice" value="{{0}}"></td>
+                <td class="px-2" style="background: {{reviewdate_red}};"><input class="w-100" name="reviewdate" type="date" value="{{1}}"></td>
+                <td class="px-2" style="background: {{standard_red}};"><input class="w-100" name="standard" value="{{2}}"></td>
+                <td class="px-2" style="background: {{eands_red}};"><input class="w-100" name="employerandstore" value="{{3}}"></td>
+                <td class="px-2" style="background: {{coach_red}};"><input class="w-100" name="coach" value="{{4}}"></td>
+                <td class="px-2" style="background: {{mom_red}};"><input class="w-100" name="managerormentor" value="{{5}}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th colspan="6" class="px-2 text-center">{{sop}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row" class="px-2">Course % Progress to date</th>
+                <td scope="row" class="px-2" style="background: {{percent_prog_red}};"><input class="w-100" placeholder="{{percent_prog}}" name="progress" value="{{6}}"></td>
+                <th scope="row" class="px-2">Course % Expected Progress according to Training Plan</th>
+                <td scope="row" class="px-2" style="background: {{progexpected_red}};"><input class="w-100" name="progexpected" value="{{27}}"></td>
+                <th scope="row" class="px-2">Comments</th>
+                <td scope="row" class="px-2 w-50" style="background: {{progcom_red}};"><textarea class="w-100" name="progcom">{{30}}</textarea></td>
+            </tr>
+            <tr>
+                <th scope="row" class="px-2">OTJH Completed</th>
+                <td scope="row" class="px-2" style="background: {{otj_hours_red}};"><input class="w-100" placeholder="{{otj_hours}}" name="hours" value="{{7}}"></td>
+                <th scope="row" class="px-2">Expected OTJH as per Training Plan</th>
+                <td scope="row" class="px-2" style="background: {{otjhexpected_red}};"><input class="w-100" name="otjhexpected" value="{{28}}"></td>
+                <th scope="row" class="px-2">Comments</th>
+                <td scope="row" class="px-2 w-50" style="background: {{otjhcom_red}};"><textarea class="w-100" name="otjhcom">{{31}}</textarea></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th scope="col" class="px-2 w-50 text-center">{{recap_act}}</th>
+                <th scope="col" class="px-2 w-50 text-center">{{impactu}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <td scope="row" class="px-2" style="background: {{recap_red}};"><textarea class="w-100" name="recap">{{8}}</textarea></td>
+            <td scope="row" class="px-2" style="background: {{impact_red}};"><textarea class="w-100" name="impact">{{9}}</textarea></td>
+        </tbody>
+    </table>
+    <br>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th scope="col" class="px-2 w-75 text-center">{{detail_tal}}</th>
+                <th scope="col" class="px-2 w-25 text-center">{{mod_ksb}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row" class="px-2" style="background: {{details_red}};"><textarea class="w-100" name="details">{{10}}</textarea></td>
+                <td scope="row" class="px-2" style="background: {{detailsksb_red}};"><textarea class="w-100" name="detailsksb">{{11}}</textarea></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th scope="col" class="px-2 w-100 text-center">{{impact_w}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row" class="px-2" style="background: {{detailimpact_red}};"><textarea class="w-100" name="detailimpact">{{12}}</textarea></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th scope="col" class="px-2 w-100 text-center" colspan="3">{{fsp}}</th>
+            </tr>
+            <tr>
+                <th scope="col" class="px-2"></th>
+                <th scope="col" class="px-2 text-center">{{learn_t}}</th>
+                <th scope="col" class="px-2 text-center">{{target_next}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row" class="px-2 text-center">{{math}}</th>
+                <td scope="row" class="px-2" style="background: {{todaymath_red}};"><textarea class="w-100" name="todaymath">{{13}}</textarea></td>
+                <td scope="row" class="px-2" style="background: {{nextmath_red}};"><textarea class="w-100" name="nextmath">{{14}}</textarea></td>
+            </tr>
+            <tr>
+                <th scope="row" class="px-2 text-center">English</th>
+                <td scope="row" class="px-2" style="background: {{todayenglish_red}};"><textarea class="w-100" name="todayenglish">{{15}}</textarea></td>
+                <td scope="row" class="px-2" style="background: {{nextenglish_red}};"><textarea class="w-100" name="nextenglish">{{16}}</textarea></td>
+            </tr>
+            <tr>
+                <th scope="row" class="px-2 text-center">{{ict}}</th>
+                <td scope="row" class="px-2" style="background: {{todayict_red}};"><textarea class="w-100" name="todayict">{{17}}</textarea></td>
+                <td scope="row" class="px-2" style="background: {{nextict_red}};"><textarea class="w-100" name="nextict">{{18}}</textarea></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <th scope="col" class="px-2 text-center">ALN Support delivered today</th>
+        </thead>
+        <tbody>
+            <td scope="row" class="px-2" style="background: {{alnsupport_red}};"><textarea class="w-100" name="alnsupport">{{29}}</textarea></td>
+        </tbody>
+    </table>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th scope="col" class="px-2 text-center">{{act_sum}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row" class="px-2" style="background: {{activity_red}};"><textarea class="w-100" name="activity">{{19}}</textarea></td>
+            </tr>
+        </tbody>
+    </table>    
+    <br>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <th scope="col" class="px-2 text-center">{{safeguarding}}</th>
+        </thead>
+        <tbody>
+            <td scope="row" class="px-2" style="background: {{safeguarding_red}};"><textarea class="w-100" name="safeguarding">{{21}}</textarea></td>
+        </tbody>
+    </table>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th scope="col" class="px-2 w-100 text-center">{{agreed_act}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row" class="px-2 w-100" style="background: {{agreedaction_red}};"><textarea class="w-100" name="agreedaction">{{22}}</textarea></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th scope="row" class="px-2 w-25 text-center align-middle">{{employer_comment}}</th>
+                <td scope="row" class="px-2 w-75" style="background: {{employercomment_red}};">
+                    <input type="file" name="file" class="w-100">
+                    <iframe id="filesrc" src="{{23}}" class="w-100 filesrc" style="height: 600px;"></iframe>
+                    <input name="filename" value="{{pdfurl}}" hidden>
+                </td>
+            </tr>
+        <thead>
+    </table>
+    <br>
+
+    <table class='table table-bordered table-striped table-hover'>
+        <thead>
+            <tr>
+                <th scope="col" class="px-2 w-100 text-center align-middle">{{apprentice_comment}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row" class="px-2 w-100" style="background: {{apprenticecomment_red}};"><textarea class="w-100" name="apprenticecomment">{{24}}</textarea></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="d-flex w-100">
+        <div class="p-2">
+            <p>{{learner_sign}}</p>
+            <img src="{{learnsig}}" width="250px" height="100px" class="learn-sign0" {{hidden3}}>
+            <p class="mt-2 learn-sign1" {{hidden3}}><input type="date" name="learnsigndate" class="learn-sign2" value="{{26}}" {{hidden3}}></p>
+        </div>
+        <div class="p-2">
+            <p>{{nta_sign}}</p>
+            <img src="{{ntasig}}" width="250px" height="100px" class="nta-sign0" {{hidden1}}>
+            <p class="mt-2 nta-sign1" {{hidden1}}><input type="date" class="nta-sign2" name="ntasigndate" value="{{25}}" {{hidden1}}></p>
+        </div>
+    </div>
+    {{/array}}
+    <input name="userid" hidden value="{{userid}}" readonly>
+    <input name="courseid" hidden value="{{courseid}}" readonly>
+    <input name="docid" hidden value="{{id}}" readonly>
+    <button class="btn btn-primary mb-2 mr-2 p-2 w-100" name="submit" type="submit">{{submit}}</button>
+</div>
+</form>
+<style>
+    #sign{
+        width: 450px;
+        height: 225px;
+    }
+</style>

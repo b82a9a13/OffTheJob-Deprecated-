@@ -1,0 +1,92 @@
+<div>
+<h2 class="bold text-center">{{otj_info}}</h2>
+<h3 class="bold text-left w-75 center">{{prog_b}}</h3>
+<div id="progress" class="w-75 center d-flex">
+    <div id="progressbar"></div>
+    <div id="expectedbar"></div>
+</div>
+<ul class="w-75 center">
+    <li class="d-flex">
+        <div id="progressdiv"></div>
+        <p>{{prog}}</p>
+        <p id="progressp"></p>
+    </li>
+    <li class="d-flex">
+        <div id="expecteddiv"></div>
+        <p>{{expect}}</p>
+        <p id="expectedp"></p>
+    </li>
+    <li class="d-flex">
+        <div id="incompletediv"></div>
+        <p>{{incomp}}</p>
+        <p id="incompletep"></p>
+    </li>
+</ul>
+<h3 class="bold text-left w-75 center">{{info_t}}</h3>
+<table class="table table-bordered table-striped table-hover w-75 text-center center">
+    {{#array}}
+    <tr>
+        <th class="px-2">{{total_nt}}</th>
+        <td class="px-2">{{0}}</td>
+    </tr>
+    <tr>
+        <th class="px-2">{{total_nl}}</th>
+        <td class="px-2">{{1}}</td>
+    </tr>
+    <tr>
+        <th class="px-2">{{otj_hours_pw}}</th>
+        <td class="px-2">{{2}}</td>
+    </tr>
+    <tr>
+        <th class="px-2">{{m_on_p}}</th>
+        <td class="px-2">{{3}}</td>
+    </tr>
+    <tr>
+        <th class="px-2">{{w_on_p}}</th>
+        <td class="px-2">{{4}}</td>
+    </tr>
+    <tr>
+        <th class="px-2">{{alw}}</th>
+        <td class="px-2">{{5}}</td>
+    </tr>
+    {{/array}}
+</table>
+</div>
+<style>
+.center{
+    margin-left: auto; 
+    margin-right: auto;
+}
+#progress{
+    background: red;
+}
+#incompletediv, #progressdiv, #expecteddiv{
+    width: 25px;
+    height: 25px;
+}
+#incompletediv{
+    background: red;
+}
+#progressdiv{
+    background: green;
+}
+#expecteddiv{
+    background: orange;
+}
+</style>
+<script>
+const expected = {{expected}};
+const percent = {{percent}};
+const progressbar = document.getElementById('progressbar');
+const incomplete = 100 - percent;
+if(percent >= expected){
+    progressbar.style = "width: {{percent}}%; height: 25px; background-color: green;";
+} else{
+    const difference = expected - percent;
+    progressbar.style = "width: {{percent}}%; height: 25px; background-color: green;";
+    document.getElementById('expectedbar').style = `width: ${difference}%; height: 25px; background-color: orange;`
+}
+document.getElementById('progressp').innerText = `: ${percent}%`;
+document.getElementById('expectedp').innerText = `: ${expected}%`;
+document.getElementById('incompletep').innerText = `: ${incomplete}%`;
+</script>

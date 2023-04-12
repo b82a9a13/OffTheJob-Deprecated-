@@ -1,0 +1,17 @@
+<h1 class="bold">Create Your Signature</h1>
+<form method="POST" action="./classes/inc/otj_learn_sign.inc.php">
+    <div class="sign-div">
+        <h4 class="bold">{{nta_sign}}</h4>
+        <canvas height="200px" width="500px" name="sign-canvas" class="sign-canvas border" style="background: white;"></canvas>
+        <button type="button" class="btn-primary mb-2 mr-2 p-2 clear-btn">{{clear}}</a>
+        <button type="button" name="submit-btn" class="btn-primary mb-2 mr-2 p-2 submit-btn">{{confirm}}</button>
+    </div>
+    <input hidden value="{{courseid}}" name="courseid">
+    <button type="submit" name="submit" class="btn-secondary mb-2 mr-2 p-2 form-submit" disabled>{{submit}}</button>
+</form>
+<script>
+    document.querySelector('.submit-btn').addEventListener('click', () => {
+        document.querySelector('.form-submit').disabled = false;
+        document.querySelector('.form-submit').className = "btn-primary mb-2 mr-2 p-2 form-submit";
+    })
+</script>

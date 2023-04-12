@@ -1,0 +1,167 @@
+{{#courses}}
+    <br>
+    <div id="{{2}}" class="outer-div-learner-table" hidden>
+        <table>
+            <thead>
+                <tr>
+                    <th class="text-left">
+                        <h2 class="bold">{{0}}</h2>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="d-flex">
+                            <div class="inner-div-learner-table" {{3}}>
+                                <table class="box-default" onclick="window.location.href='otj_hours_learn.php?courseid={{2}}'">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center"><h3 class="bold">Hours Log</h3></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="d-flex">
+                                                <img src="./classes/img/HoursLog.png" style="width: 120px; height: 120px;">
+                                                <canvas id="canvas{{2}}" width="120px" height="120px"></canvas>
+                                                <div class="align-self-center">
+                                                    <h4>{{prog}}: {{6}}%</h4>
+                                                    <h4>{{expect}}: {{7}}%</h4>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="inner-div-learner-table" {{3}}>
+                                <table class="box-default" onclick="window.location.href='otj_doc_learn.php?courseid={{2}}'">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center"><h3 class="bold">{{mar}}</h3></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                                <img src="./classes/img/Report.png" style="width: 120px; height: 120px;">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="inner-div-learner-table" {{3}}>
+                                <table class="box-default" onclick="window.location.href='otj_module_learn.php?courseid={{2}}'">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center"><h3 class="bold">Module Completion</h3></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="d-flex">
+                                                <img src="./classes/img/Completion.png" style="width: 120px; height: 120px;">
+                                                <canvas id="canvascomp{{2}}" width="120px"  height="120px"></canvas>
+                                                <div class="align-self-center">
+                                                    <h4>{{prog}}: {{8}}%</h4>
+                                                    <h4>{{expect}}: {{9}}%</h4>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="inner-div-learner-table" {{5}}>
+                            <table class="box-default w-100" onclick="window.location.href='learnsign.php?courseid={{2}}'">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center"><h3 class="bold">Create Your Signature</h3></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">
+                                            <img src="./classes/img/Signature.png" style="width: 120px; height: 120px;">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div {{4}} class="box-default inner-div-learner-table">
+                            <h4>{{setup_contact}}</h4>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{{/courses}}
+<script>
+    function course_click(int){
+        if(document.getElementById(int).hidden == false){
+            document.getElementById(int).hidden = true;
+            document.getElementById("btn"+int).className = "btn-primary mb-2 mr-2 p-2";
+        } else if (document.getElementById(int).hidden == true){
+            document.getElementById(int).hidden = false;
+            document.getElementById("btn"+int).className = "btn-secondary mb-2 mr-2 p-2";
+        }
+    }
+    let arrayper{{int}} = [];
+    let arraymod{{int}} = [];
+    {{#courses}}
+        arrayper{{int}}.push([{{2}}, {{6}}, {{7}}]);
+        arraymod{{int}}.push([{{2}}, {{8}}, {{9}}]);
+    {{/courses}}
+    arrayper{{int}}.forEach((arr) => {
+        let course = arr[0];
+        let percent = arr[1] / 100;
+        let percent2 = arr[2] / 100;
+        let canvas = document.getElementById("canvas"+course);
+        let ctx = canvas.getContext("2d");
+        let int = 2;
+        let complete = int * percent;
+        let complete2 = int * percent2;
+        ctx.lineWidth = 30;
+        ctx.beginPath();
+        ctx.strokeStyle = 'red';
+        ctx.arc(60,60,30,complete*Math.PI,int*Math.PI);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.strokeStyle = 'orange';
+        ctx.arc(60,60,30,0,complete2*Math.PI);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.strokeStyle = 'green';
+        ctx.arc(60,60,30,0,complete*Math.PI);
+        ctx.stroke();
+    })
+    arraymod{{int}}.forEach((arr) => {
+        let course = arr[0];
+        let percent = arr[1] / 100;
+        let percent2 = arr[2] / 100;
+        let canvas = document.getElementById("canvascomp"+course);
+        let ctx = canvas.getContext("2d");
+        let int = 2;
+        let complete = int * percent;
+        let complete2 = int * percent2;
+        ctx.lineWidth = 30;
+        ctx.beginPath();
+        ctx.strokeStyle = 'red';
+        ctx.arc(60,60,30,complete*Math.PI,int*Math.PI);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.strokeStyle = 'orange';
+        ctx.arc(60,60,30,0,complete2*Math.PI);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.strokeStyle = 'green';
+        ctx.arc(60,60,30,0,complete*Math.PI);
+        ctx.stroke();
+    })
+</script>
+<style>
+    .box-default{
+        cursor: pointer;
+    }
+</style>

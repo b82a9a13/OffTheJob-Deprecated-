@@ -1,0 +1,28 @@
+<div class="inner-div-admin">
+<form action="" method="POST">
+    <h2 class="bold">Pick a Learner and Course</h2>
+    <h3 class="bold text-danger">{{error}}</h3>
+    <select name="opt">
+        <option disabled hidden selected>Pick a learner and course</option>
+        {{#setuparray}}
+        <option value="{{1}}-{{3}}">{{0}} - {{2}}</option>
+        {{/setuparray}}
+    </select>
+    <button type="submit" class="btn btn-primary mb-2 mr-2 p-2" name="submit">Submit Selection</button>
+</form>
+</div>
+<br>
+<div class="inner-div-admin">
+    <h2 class="bold">Click The Icon For Reports</h2>
+    <img src="./classes/img/Report.png" onclick="window.location.href='./admin_reports.php'" style="width: 120px; height: 120px; cursor: pointer;">
+</div>
+<style>
+    .inner-div-admin{
+        border: 2px solid #95287A;
+        border-radius: 5px;
+        padding: .5rem;
+        margin-bottom: .75rem;
+        background: #F5F5F5;
+        display: inline-block;
+    }
+</style>

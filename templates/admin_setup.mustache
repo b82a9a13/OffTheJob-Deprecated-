@@ -1,0 +1,49 @@
+<h3 class="bold text-danger">{{error}}</h3>
+<form action="./classes/inc/otj_admin_initial.inc.php" method="POST">
+    <table class='table table-bordered table-striped table-hover' id="setuptable">
+        <tr>
+            <th scope="col" class="px-2">{{total_m}}</th>
+            <th scope="col" class="px-2">{{otjh}}</th>
+            <th scope="col" class="px-2">{{eands}}</th>
+            <th scope="col" class="px-2">{{coach}}</th>
+            <th scope="col" class="px-2">{{morm}}</th>
+        </tr>
+        <tr>
+            {{#array}}
+            <td class="px-2" style="background: {{9}};"><input class="w-100 px-2" name="totalmonths" value="{{0}}"></td>
+            <td class="px-2" style="background: {{10}};"><input class="w-100 px-2" name="otjhours" value="{{1}}"></td>
+            <td class="px-2" style="background: {{11}};"><input class="w-100 px-2" name="eors" value="{{2}}"></td>
+            <td class="px-2" style="background: {{12}};"><input class="w-100 px-2" name="coach" value="{{3}}"></td>
+            <td class="px-2" style="background: {{13}};"><input class="w-100 px-2" name="mom" value="{{4}}"></td>
+            {{/array}}
+        </tr>
+    </table>
+
+    <table class="table table-borderd table-striped table-hover w-100" id="setuptable2">
+        <tr>
+            <th scope="col" class="px-2">{{startdate}}</th>
+            <th scope="col" class="px-2">{{hpw}}</th>
+            <th scope="col" class="px-2">Annual Leave Weeks</th>
+            <th scope="col" class="px-2">Training Plan</th>
+        </tr>
+        <tr>
+            {{#array}}
+            <td class="px-2" style="background: {{14}};"><input class="w-100 px-2" type="date" name="startdate" value="{{5}}"></td>
+            <td class="px-2" style="background: {{15}};"><input class="w-100 px-2" name="hpw" value="{{6}}"></td>
+            <td class="px-2" style="background: {{16}};"><input class="w-100 px-2" name="alw" value="{{7}}"></td>
+            {{/array}}
+            <td class="px-2">
+                <select name="planfilename" class="w-100">
+                    <option disabled value="" selected>Pick a Training Plan</option>
+                    {{#filesarray}}
+                    <option value="{{1}}" {{2}}>{{0}}</option>
+                    {{/filesarray}}
+                </select>
+            </td>
+        </tr>
+    </table>
+    <input name="userid" value="{{userid}}" hidden readonly>
+    <input name="courseid" value="{{courseid}}" hidden readonly>
+    <br>
+    <button type="submit" name="submit" class="btn-primary mb-2 mr-2 p-2">{{submit}}</button>
+</form>

@@ -1,0 +1,301 @@
+<form method="POST" action="./classes/inc/otj_admin_plan.inc.php">
+    <table class="table table-bordered table-striped table-hover w-100">
+        <tr>
+            <th class="px-2">{{name}}</th>
+            <th class="px-2">{{employer_txt}}</th>
+            <th class="px-2">{{startdate_txt}}</th>
+            <th class="px-2">{{plan_ed}}</th>
+            <th class="px-2">{{lop}}</th>
+            <th class="px-2">{{cap_otjh}}</th>
+            <th class="px-2">{{epao_txt}}</th>
+            <th class="px-2">{{fund_source}}</th>
+        </tr>
+        <tr>
+            <td class="px-2" style="background: {{username_red}};"><input class="w-100 px-2" name="name" value="{{username}}"></td>
+            <td class="px-2" style="background: {{employer_red}};"><input class="w-100 px-2" name="employer" value="{{employer}}"></td>
+            <td class="px-2" style="background: {{startdate_red}};"><input class="w-100 px-2" name="startdate" type="date" value="{{startdate}}"></td>
+            <td class="px-2" style="background: {{plannedendd_red}};"><input class="w-100 px-2" name="plannedendd" type="date" value="{{plannedendd}}"></td>
+            <td class="px-2" style="background: {{totalmonth_red}};"><input class="w-100 px-2" name="lengthofprog" value="{{totalmonth}}"></td>
+            <td class="px-2" style="background: {{otjh_red}};"><input class="w-100 px-2" name="otjh" value="{{otjh}}" ></td>
+            <td class="px-2" style="background: {{epao_red}};">
+                <select class="w-100 px-2" name="epao" value="{{epao}}" {{edit_read}}>
+                    <option disabled {{epaodefault}}>Choose EPAO</option>
+                    <option value="frawards" {{frawards}}>FR Awards</option>
+                    <option value="candg" {{candg}}>C & G</option>
+                    <option value="innovate" {{innovate}}>Innovate</option>
+                    <option value="dsw" {{dsw}}>DSW</option>
+                    <option value="nocn" {{nocn}}>NOCN</option>
+                </select>
+            </td>
+            <td class="px-2" style="background: {{fundsource_red}};">
+                <select class="w-100 px-2" name="fundsource" selected="{{fundsource}}" >
+                    <option disabled {{funddefault}}>Choose Funding Source</option>
+                    <option value="contrib" {{contrib}}>5% Contribution</option>
+                    <option value="levy" {{levy}}>Levy</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+
+    <h4>{{initial_ass}}</h4>
+    <table class="table table-bordered table-striped table-hover w-100">
+        <tr>
+            <th class="px-2">{{bskbrm_txt}}</th>
+            <th class="px-2">{{bskre_txt}}</th>
+            <th class="px-2">{{learns_txt}}</th>
+            <th class="px-2">{{sslearnr_txt}}</th>
+            <th class="px-2">{{ssemployr_txt}}</th>
+        </tr>
+        <tr>
+            <td class="px-2" style="background: {{bskbrm_red}};"><input class="w-100 px-2" name="bskbrm" value="{{bskbrm}}" ></td>
+            <td class="px-2" style="background: {{bskre_red}};"><input class="w-100 px-2" name="bskre" value="{{bskre}}" ></td>
+            <td class="px-2" style="background: {{learns_red}};">
+                <select class="w-100 px-2" name="learns" selected="{{learns}}" {{edit_read}}>
+                    <option disabled {{learnsdefault}}>Choose Learning Style</option>
+                    <option value="visual" {{visual}}>Visual</option>
+                    <option value="auditory" {{auditory}}>Auditory</option>
+                    <option value="kinaesthetic" {{kinaesthetic}}>Kinaesthetic</option>
+                </select>
+            </td>
+            <td class="px-2" style="background: {{sslearnr_red}};"><input class="w-100 px-2" name="sslearnr" value="{{sslearnr}}" ></td>
+            <td class="px-2" style="background: {{ssemployr_red}};"><input class="w-100 px-2" name="ssemployr" value="{{ssemployr}}" ></td>
+        </tr>
+    </table>
+
+    <h4>{{otj_calc}}</h4>
+    <table class="table table-borderd table-striped table-hover w-100">
+        <tr>
+            <th class="px-2">{{apprenhpw_txt}}</th>
+            <th class="px-2">{{weekop_txt}}</th>
+            <th class="px-2">{{annuall_txt}}</th>
+            <th class="px-2">{{pdhours_txt}}</th>
+        </tr>
+        <tr>
+            <td class="px-2" style="background: {{hpw_red}};"><input class="w-100 px-2" value="{{hpw}}" name="apprenhpw"></td>
+            <td class="px-2" style="background: {{wop_red}}"><input class="w-100 px-2" value="{{wop}}" name="weekop"></td>
+            <td class="px-2" style="background: {{annuallw_red}}"><input class="w-100 px-2" value="{{annuallw}}" name="annuall"></td>
+            <td class="px-2" style="background: {{pdhours_red}};"><input class="w-100 px-2" name="pdhours" value="{{pdhours}}" ></td>
+        </tr> 
+    </table>
+
+    <h4>{{aspire}}</h4>
+    <table class="table table-bordered table-striped table-hover w-100">
+        <tr>
+            <th class="px-2 w-25">{{areaostren_txt}}</th>
+            <th class="px-2" style="background: {{areaostren_red}};"><textarea class="w-100" name="areaostren" >{{areaostren}}</textarea></td>
+        </tr>
+        <tr>
+            <th class="px-2 w-25">{{longtgoal_txt}}</th>
+            <th class="px-2" style="background: {{longtgoal_red}};"><textarea class="w-100" name="longtgoal" >{{longtgoal}}</textarea></td>
+        </tr>
+        <tr>
+            <th class="px-2 w-25">{{shorttgoal_txt}}</th>
+            <th class="px-2" style="background: {{shorttgoal_red}};"><textarea class="w-100" name="shorttgoal" >{{shorttgoal}}</textarea></td>
+        </tr>
+        <tr>
+            <th class="px-2 w-25">{{iag_txt}}</th>
+            <th class="px-2" style="background: {{iag_red}};"><textarea class="w-100" name="iag">{{iag}}</textarea></td>
+        </tr>
+    </table>
+
+    <table class="table table-bordered table-striped table-hover w-100">
+        <tr>    
+            <th class="px-2">{{recopl_txt}}</th>
+        </tr>
+        <tr>
+            <td class="px-2" style="background: {{recopl_red}};"><textarea class="w-100" name="recopl">{{recopl}}</textarea></td>
+        </tr>
+    </table>
+
+    <table class="table table-bordered table-striped table-hover w-100">
+        <tr>
+            <th class="px-2">{{modules_txt}}</th>
+            <th class="px-2">{{modpsd_txt}}</th>
+            <th class="px-2">Revised Start Date</th>
+            <th class="px-2">{{modped_txt}}</th>
+            <th class="px-2">{{modred_txt}}</th>
+            <th class="px-2" style="width: 40px;">{{modw_txt}}</th>
+            <th class="px-2" style="width: 40px;">{{modotjh_txt}}</th>
+            <th class="px-2">{{modmod_txt}}</th>
+            <th class="px-2">{{modotjt_txt}}</th>
+            <th class="px-2" style="width: 40px;">{{modaotjhc_txt}}</th>
+        </tr>
+        {{#modules}}
+        <tr>
+            <th class="px-2" style="background: {{17}};"><textarea class="px-2 w-100 bold" name="modname{{4}}">{{0}}</textarea></th>
+            <td class="px-2" style="background: {{8}};"><input class="px-2 w-100" type="date" name="modpsd{{4}}" value="{{5}}" style="width: 120px;"></td>
+            <td class="px-2" style="background: {{16}};"><input class="px-2 w-100" type="date" name="modrsd{{4}}" value="{{15}}" style="width: 120px;"></td>
+            <td class="px-2" style="background: {{9}};"><input class="px-2 w-100" type="date" name="modped{{4}}" value="{{6}}" style="width: 120px;"></td>
+            <td class="px-2" style="background: {{11}};"><input class="px-2 w-100" type="date" name="modred{{4}}" value="{{14}}" style="width: 120px;"></td>
+            <td class="px-2" style="background: {{18}};"><input class="px-2 w-100" name="modw{{4}}"   value="{{1}}" style="width: 50px;"></td>
+            <td class="px-2" style="background: {{19}};"><input class="px-2 w-100" name="modotjh{{4}}"   value="{{2}}" style="width: 50px;"></td>
+            <td class="px-2" style="background: {{20}};"><textarea class="px-2 w-100" name="modmod{{4}}">{{3}}</textarea></td>
+            <td class="px-2" style="background: {{10}};"><textarea class="w-100" name="modotjt{{4}}">{{7}}</textarea></td>
+            <td class="px-2" style="background: {{12}};"><input class="px-2 w-100" name="modaotjhc{{4}}" value="{{13}}" style="width: 50px;"></td>
+        </tr>
+        {{/modules}}
+        <tr>
+            <th class="px-2">Totals</th>
+            <td class="px-2"></td>
+            <td class="px-2"></td>
+            <td class="px-2"></td>
+            <td class="px-2"></td>
+            <td class="px-2">{{modweight_total}}</td>
+            <td class="px-2">{{planned_total}}</td>
+            <td class="px-2"></td>
+            <td class="px-2"></td>
+            <td class="px-2">{{completed_total}}</td>
+        </tr>
+    </table>
+
+    <h4>{{fsd_title}}</h4>
+    <p>{{fsd_info}}</p>
+    <table class="table table-bordered table-striped table-hover w-100">
+        <tr>
+            <th class="px-2">{{fs_txt}}</th>
+            <th class="px-2">{{fslevel_txt}}</th>
+            <th class="px-2">{{fsmod_txt}}</th>
+            <th class="px-2">{{fssd_txt}}</th>
+            <th class="px-2">{{fsped_txt}}</th>
+            <th class="px-2">{{fsaed_txt}}</th>
+            <th class="px-2">{{fsusd_txt}}</th>
+            <th class="px-2">{{fsuped_txt}}</th>
+            <th class="px-2">{{fsaead_txt}}</th>
+        </tr>
+        {{#fskill}}
+        <tr>
+            <td class="px-2" style="background: {{17}};"><input class="px-2 w-100" name="fsname{{2}}" value="{{0}}"></td>
+            <td class="px-2" style="background: {{8}};"><input class="px-2 w-100" name="fslevel{{2}}" value="{{3}}"></td>
+            <td class="px-2" style="background: {{18}};"><textarea class="px-2 w-100" name="fsmod{{2}}">{{1}}</textarea></td>
+            <td class="px-2" style="background: {{9}};"><input class="px-2 w-100" type="date" name="fssd{{2}}" value="{{4}}" style="width: 120px;"></td>
+            <td class="px-2" style="background: {{10}};"><input class="px-2 w-100" type="date" name="fsped{{2}}" value="{{5}}" style="width: 120px;"></td>
+            <td class="px-2" style="background: {{13}};"><input class="px-2 w-100" type="date" name="fsaed{{2}}" value="{{16}}" style="width: 120px;"></td>
+            <td class="px-2" style="background: {{11}};"><input class="px-2 w-100" type="date" name="fsusd{{2}}" value="{{6}}" style="width: 120px;"></td>
+            <td class="px-2" style="background: {{12}};"><input class="px-2 w-100" type="date" name="fsuped{{2}}" value="{{7}}" style="width: 120px;"></td>
+            <td class="px-2" style="background: {{14}};"><input class="px-2 w-100" type="date" name="fsaead{{2}}" value="{{15}}" style="width: 120px;"></td>
+        </tr>
+        {{/fskill}}
+    </table>
+
+    <h4>{{pr_title}}</h4>
+    <table class="table table-bordered table-striped table-hover w-100" id="progtable">
+        <tr>
+            <th class="px-2">{{prtor_txt}}</th>
+            <th class="px-2">{{prpr_txt}}</th>
+            <th class="px-2">{{prar_txt}}</th>
+        </tr>
+        {{#progreview}}
+        <tr>
+            <td class="px-2" style="background: {{4}}">
+                <select class="px-2 w-100" name="prtor{{3}}" selected="{{0}}">
+                    <option disabled {{progdefault}} {{7}}>Learner/Employer</option>
+                    <option value="Learner" {{8}}>Learner</option>
+                    <option value="Employer" {{9}}>Employer</option>
+                </select>
+            </td>
+            <td class="px-2" style="background: {{5}}"><input class="px-2 w-100" type="date" name="prpr{{3}}" value="{{1}}"></td>
+            <td class="px-2" style="background: {{6}}"><input class="px-2 w-100" type="date" name="prar{{3}}" value="{{2}}" ></td>
+        </tr>
+        {{/progreview}}
+    </table>
+    <button class="btn btn-primary mb-2 mr-2 p-2" type="button" id="progbtn" onclick="progclickadd()">{{addnewr}}</button>
+    <button class="btn btn-primary mb-2 mr-2 p-2" type="button" id="progbtndel" onclick="progclickremove()">{{remove_r}}</button>
+
+    <table class="table table-bordered table-striped table-hover w-100">
+        <tr>    
+            <th class="px-2">{{addsa_txt}}</th>
+        </tr>
+        <tr>
+            <td class="px-2" style="background: {{addsa_red}};"><textarea class="w-100" name="addsa">{{addsa}}</textarea></td>
+        </tr>
+    </table>
+
+    <h4>{{change_log}}</h4>
+    <table class="table table-bordered table-striped table-hover w-100" id="logtable">
+        <tr>
+            <th class="px-2">{{dateofc_txt}}</th>
+            <th class="px-2 w-75">{{log_txt}}</th>
+        </tr>
+        {{#logs}}
+        <tr>
+            <td style="background: {{3}}"><input type="date" class="px-2 w-100" name="dateofc{{2}}" {{log_state}} value="{{0}}"></td>
+            <td style="background: {{4}}"><textarea class="w-100" name="log{{2}}" {{log_state}}>{{1}}</textarea></td>
+        </tr>
+        {{/logs}}
+    </table>
+    <button {{unused}} class="btn btn-primary mb-2 mr-2 p-2" type="button" id="logaddbtn" onclick="clickaddlog()">Add new Log</button>
+    <button {{unused}} class="btn btn-primary mb-2 mr-2 p-2" type="button" id="logremovebtn" onclick="clickremovelog()">Remove Log</button>
+    <input hidden readonly name="modtotal" value="{{modtotal}}">
+    <input hidden readonly name="fstotal" value="{{fstotal}}">
+    <input hidden readonly name="progtotal" id="progresstotal" value="{{progtotal}}">
+    <input hidden readonly name="userid" value="{{userid}}">
+    <input hidden readonly name="courseid" value="{{courseid}}">
+    <input hidden readonly name="logtotal" value="{{logtotal}}" id="logtotal">
+    <button class="btn-primary mb-2 mr-2 p-2 w-100" name="submit" type="submit"><h1><b>{{submit}}</b></h1></button>
+</form>
+<script>
+    let int = {{progtotal}};
+    let progtotal = {{progtotal}};
+    const progtable = document.getElementById('progtable');
+    function progclickadd(){
+        int++;
+        let row = progtable.insertRow(int);
+        let cell1 = row.insertCell(0);
+        let cell2 = row.insertCell(1);
+        let cell3 = row.insertCell(2);
+        cell1.innerHTML = 
+                `<select class="px-2 w-100" name="prtor${int-1}">
+                    <option disabled selected>Learner/Employer</option>
+                    <option value="Learner">Learner</option>
+                    <option value="Employer">Employer</option>
+                </select>`
+        ;
+        cell2.innerHTML = `<input class="w-100 px-2" type="date" name="prpr${int-1}">`;
+        cell3.innerHTML = `<input class="w-100 px-2" type="date" name="prar${int-1}"  >`;
+        document.getElementById('progresstotal').setAttribute('value', int);
+        if(int> progtotal){
+            document.getElementById("progbtndel").disabled = false;
+        }
+    }
+    function progclickremove(){
+        if(int >= progtotal){
+            progtable.deleteRow(int);
+            int--;
+            document.getElementById('progresstotal').setAttribute('value', int);
+        }
+        if(int == progtotal){
+            document.getElementById("progbtndel").disabled = true;
+        }
+    }
+    if(int == progtotal){
+        document.getElementById("progbtndel").disabled = true;
+    }
+    let lognum = {{logtotal}};
+    let logtotal = {{logtotal}};
+    const logtable = document.getElementById("logtable");
+    function clickaddlog(){
+        lognum++;
+        let row = logtable.insertRow(lognum);
+        let cell1 = row.insertCell(0);
+        let cell2 = row.insertCell(1);
+        cell1.innerHTML = `<input type="date" class="px-2 w-100" name="dateofc${lognum-1}" value="">`;
+        cell2.innerHTML = `<textarea class="w-100" name="log${lognum-1}"></textarea>`;
+        document.getElementById('logtotal').setAttribute('value', lognum);
+        if(lognum > logtotal){
+            document.getElementById("logremovebtn").disabled = false;
+        }
+    }
+    function clickremovelog(){
+        if(lognum >= logtotal){
+            logtable.deleteRow(lognum);
+            lognum--;
+            document.getElementById('logtotal').setAttribute('value', lognum);
+        }
+        if(lognum == logtotal){
+            document.getElementById("logremovebtn").disabled = true;
+        }
+    }
+    if(lognum == logtotal){
+        document.getElementById("logremovebtn").disabled = true;
+    }
+</script>

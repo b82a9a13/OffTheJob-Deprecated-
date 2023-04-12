@@ -1,0 +1,92 @@
+<button onclick="window.location.href='teacher.php'" type="button" class="btn-primary mb-2 mr-2 p-2">{{btm}}</button>
+<button onclick="window.location.href='otj_doc.php?userid={{userid}}&courseid={{courseid}}'" type="button" class="btn-primary mb-2 mr-2 p-2" {{hiddenback}}>{{bta}}</button>
+<h1 class="bold text-center">{{mar}}</h1>
+<h2 class="bold">{{draft}}</h2>
+<button onclick="window.location.href='otj_doc.php?userid={{userid}}&courseid={{courseid}}&form=true&type=error'" type='button' class='btn-primary mb-2 mr-2 p-2' {{hidden}}>{{editdraft}}</button>
+<h2 class="bold">{{docs}}</h2>
+<ol>
+    {{#array}}
+        <li>
+            <div class="d-flex mb-2 p-2">
+            <h3 class="bold">{{1}} </h3>
+            <form method="POST" action="./classes/inc/otj_docs_update.inc.php?userid={{userid}}&courseid={{courseid}}&id={{0}}">
+                <button type="submit" class="btn-primary mb-2 mr-2 p-2" {{hidden1}} name="submit">Update</button>
+            </form>
+            <form method="POST" action="./classes/inc/otj_docs_delete.inc.php?userid={{userid}}&courseid={{courseid}}&id={{0}}">
+                <button type="button" class="btn-danger mb-2 mr-2 p-2" {{hidden1}} id="sub-btnu{{userid}}c{{courseid}}d{{0}}">Delete</button>
+                <div class="modal" id="del_modalu{{userid}}c{{courseid}}d{{0}}">
+                    <div class="modal_content">
+                        <span class="close" id="closeu{{userid}}c{{courseid}}d{{0}}">&times;</span>
+                        <h2>Are you sure you want to delete this?</h2>
+                        <button class="btn-danger mb-2 mr-2 p-2" type="submit" name="submit">Yes</button>
+                        <button id="nou{{userid}}c{{courseid}}d{{0}}" class="btn-primary mb-2 mr-2 p-2" type="button">No</button>
+                    </div>
+                </div>
+            </form>
+            <button class="btn btn-primary mb-2 mr-2 p-2" onclick="pdf_open('./classes/pdf/marpdf_single.php?userid={{userid}}&courseid={{courseid}}&id={{0}}', './classes/pdf/employercomment.php?userid={{userid}}&courseid={{courseid}}&id={{0}}')" {{hidden1}}>PDF</button>
+            </div>
+        </li>
+    {{/array}}
+</ol>
+<button onclick="window.location.href='otj_doc.php?userid={{userid}}&courseid={{courseid}}&form=true'" type="button" class="btn-primary mr-2 mb-2 p-2" {{hidden1}}>{{newdoc}}</button>
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+    .modal_content{
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .close:hover, .close:focus{
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+<script>
+    let array = [];
+    {{#array}}
+        array.push(["del_modalu{{userid}}c{{courseid}}d{{0}}", "closeu{{userid}}c{{courseid}}d{{0}}", "nou{{userid}}c{{courseid}}d{{0}}", "sub-btnu{{userid}}c{{courseid}}d{{0}}"])
+    {{/array}}
+        array.forEach((arr) => {
+        let modal = document.getElementById(arr[0]);
+        let span = document.getElementById(arr[1]);
+        let no = document.getElementById(arr[2]);
+        let btn = document.getElementById(arr[3]);
+        span.onclick = function (){
+            modal.style.display = "none";
+        }
+        btn.onclick = function (){
+            modal.style.display = "block";
+        }
+        window.onclick = function (event){
+            if(event.target == modal){
+                modal.style.display = "none";
+            }
+        }
+        no.onclick = function (){
+            modal.style.display = "none";
+        }
+    })
+    function pdf_open(one, two){
+        window.open(one)
+        window.open(two)
+    }
+</script>

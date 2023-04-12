@@ -1,0 +1,65 @@
+<button onclick="window.location.href='teacher.php'" type="button" class="btn-primary mb-2 mr-2 p-2">{{btm}}</button>
+<h2 class="bold text-center">{{otjs}} - {{username}} - {{coursename}}</h2>
+<h3 class="bold text-danger">{{error}}</h3>
+<form action="./classes/inc/otj_setup.inc.php" method="POST" class="setup-form">
+    <table class='table table-bordered table-striped table-hover' id="setuptable">
+        <tr>
+            <th scope="col" class="px-2">{{total_m}}</th>
+            <th scope="col" class="px-2">{{otjh}}</th>
+            <th scope="col" class="px-2">{{eands}}</th>
+            <th scope="col" class="px-2">{{coach}}</th>
+            <th scope="col" class="px-2">{{morm}}</th>
+        </tr>
+        <tr>
+            {{#array}}
+            <td class="px-2"><input class="w-100 px-2" name="totalmonths" value="{{0}}"></td>
+            <td class="px-2"><input class="w-100 px-2" name="otjhours" value="{{1}}"></td>
+            <td class="px-2"><input class="w-100 px-2" name="eors" value="{{2}}"></td>
+            <td class="px-2"><input class="w-100 px-2" name="coach" value="{{3}}"></td>
+            <td class="px-2"><input class="w-100 px-2" name="mom" value="{{4}}"></td>
+            {{/array}}
+        </tr>
+    </table>
+
+    <table class="table table-borderd table-striped table-hover w-100" id="setuptable2">
+        <tr>
+            <th scope="col" class="px-2">{{startdate}}</th>
+            <th scope="col" class="px-2">{{hpw}}</th>
+            <th scope="col" class="px-2">Annual Leave Weeks</th>
+            <th scope="col" class="px-2">Training Plan</th>
+        </tr>
+        <tr>
+            {{#array}}
+            <td class="px-2"><input class="w-100 px-2" type="date" name="startdate" value="{{5}}"></td>
+            <td class="px-2"><input class="w-100 px-2" name="hpw" value="{{6}}"></td>
+            <td class="px-2"><input class="w-100 px-2" name="alw" value="{{7}}"></td>
+            {{/array}}
+            <td class="px-2">
+                <select name="planfilename" class="w-100">
+                    <option disabled value="" selected>{{pick_t}}</option>
+                    {{#filesarray}}
+                    <option value="{{1}}">{{0}}</option>
+                    {{/filesarray}}
+                </select>
+            </td>
+        </tr>
+    </table>
+
+    <div class="sign-div">
+        <h4 class="bold">{{nta_sign}}</h4>
+        <canvas height="200px" width="500px" name="sign-canvas" class="sign-canvas border" style="background: white;"></canvas>
+        <button type="button" class="btn-primary mb-2 mr-2 p-2 clear-btn">{{clear}}</a>
+        <button type="button" name="submit-btn" class="btn-primary mb-2 mr-2 p-2 submit-btn">{{submit}}</button>
+    </div>
+
+    <input name="userid" value="{{userid}}" hidden>
+    <input name="courseid" value="{{courseid}}" hidden>
+    <br>
+    <button type="submit" name="submit" class="btn-primary mb-2 mr-2 p-2">{{submit}}</button>
+</form>
+<style>
+    .disablecan{
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+</style>

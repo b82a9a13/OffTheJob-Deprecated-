@@ -1,0 +1,60 @@
+<h2 class="bold text-center">{{title}}</h2>
+    <table class='table table-bordered table-striped table-hover' id="hourstable">
+        <thead>
+            <tr>
+                <th scope="col" class="px-2">{{id}}</th>
+                <th scope="col" class="px-2">{{date}}</th>
+                <th scope="col" class="px-2">{{activity}}</th>
+                <th scope="col" class="px-2">{{what_unit}}?</th>
+                <th scope="col" class="px-2">What impact will this have in your role?</th>
+                <th scope="col" class="px-2">{{duration}}</th>
+                <th scope="col" class="px-2">{{initial}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#array}}
+            <tr>
+                <td scope="row" class="px-2" width="4%"><a href="./classes/inc/otj_hours_update.inc.php?id={{7}}&userid={{userid}}&courseid={{courseid}}" id="href{{6}}"><button class="w-100 h-100" id="btn{{6}}" disabled>{{6}}</button></a></td>
+                <td scope="row" class="px-2" width="8%">{{0}}</td>
+                <td scope="row" class="px-2" width="20%">{{1}}</td>
+                <td scope="row" class="px-2" width="10%">{{2}}</td>
+                <td scope="row" class="px-2" width="40%">{{3}}</td>
+                <td scope="row" class="px-2" width="10%">{{4}}</td>
+                <td scope="row" class="px-2" width="8%">{{5}}</td>
+            </tr>
+            {{/array}}
+        </tbody>
+    </table>
+    <button id="del_btn" type="button" class="btn-primary mb-2 mr-2 p-2" onclick="del_click()">{{delete_r}}</button>
+    <button type="button" class="btn-primary mb-2 mr-2 p-2" onclick="up_click()" id="upd_btn" >{{update_r}}</button>
+    <button class="btn-primary mb-2 mr-2 p-2" onclick="window.location.reload()">{{reset}}</button>
+    <a href="./classes/pdf/hourspdf.php?userid={{userid}}&courseid={{courseid}}" target="_blank"><button class="btn-primary mb-2 mr-2 p-2">{{print}}</button></a>
+</form>
+<script>
+    function del_click(){
+        disabled();
+        btn('btn-danger w-100 h-100', '&type=delete', 'del_btn');
+    }
+    function up_click(){
+        disabled();
+        btn('btn-primary w-100 h-100', '&type=update', 'upd_btn');
+    }
+
+    function btn(name, href){
+        let total = {{total}};
+        let num = 0;
+        while(num <= total){
+            let id = document.getElementById('btn'+num);
+            id.disabled = false;
+            id.className = name;
+            document.getElementById('href'+num).href = document.getElementById('href'+num).href + href;
+            num++;
+        };
+    }
+    function disabled(){
+        btn1 = document.getElementById('upd_btn');
+        btn2 = document.getElementById('del_btn');
+        btn1.disabled = true;
+        btn2.disabled = true;
+    }
+</script>

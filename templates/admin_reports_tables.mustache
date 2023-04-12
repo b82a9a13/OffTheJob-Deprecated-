@@ -1,0 +1,231 @@
+<div id="report_table" style="display: none;" class="div-border-admin-report">
+<h2 class="bold">{{tables}}</h2>
+
+<button class="btn btn-primary mb-2 mr-2 p-2 course_btn" id="course_btn" onclick="course_btn()">{{show}} <b>{{all_apc}}</b></button>
+<button class="btn btn-primary mb-2 mr-2 p-2 initial_btn" id="initial_btn" onclick="initial_btn()">{{show}} <b>{{learner_incomps}}</b></button>
+<button class="btn btn-primary mb-2 mr-2 p-2 complete_btn" id="complete_btn" onclick="complete_btn()">{{show}} <b>{{learner_comps}}</b></button>
+<button class="btn btn-primary mb-2 mr-2 p-2 behind_btn" id="behind_btn" onclick="behind_btn()">{{show}} <b>{{learner_behind}}</b></button>
+<button class="btn btn-primary mb-2 mr-2 p-2 signed_btn" id="signed_btn" onclick="signed_btn()">{{show}} <b>{{learner_docmis}}</b></button>
+<button class="btn btn-primary mb-2 mr-2 p-2 plan_btn" id="plan_btn" onclick="plan_btn()">{{show}} <b>{{learner_noplan}}</b></button>
+
+<div class='course_table inner-div-admin-report' hidden>
+    <table class='table table-bordered table-striped table-hover'>
+        <h3 class="bold">{{all_apc}}</h3>
+        <thead>
+            <tr>
+                <th class="px-2">{{course}}</th>
+                <th class="px-2">{{total_el}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#coursearray}}
+            <tr>
+                <td class="px-2">{{0}}</td>
+                <td class="px-2">{{1}}</td>
+            </tr>
+            {{/coursearray}}
+        </tbody>
+    </table>
+</div>
+
+<div class="initial_table inner-div-admin-report" hidden>
+    <table class="table table-bordered table-striped table-hover">
+        <h3 class="bold">{{learner_incomps}}</h3>
+        <thead>
+            <tr>
+                <th class="px-2">{{learner}}</th>
+                <th class="px-2">{{course}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#initialarray}}
+            <tr>
+                <td clas="px-2">{{0}}</td>
+                <td clas="px-2">{{1}}</td>
+            </tr>
+            {{/initialarray}}
+        </tbody>
+    </table>
+</div>
+
+<div class="complete_table inner-div-admin-report" hidden>
+    <table class="table table-bordered table-striped table-hover">
+        <h3 class="bold">{{learner_comps}}</h3>
+        <thead>
+            <tr>
+                <th class="px-2">{{learner}}</th>
+                <th class="px-2">{{course}}</th>
+                <th class="px-2">{{tplan_use}}</th>
+                <th class="px-2">{{mar_used}}</th>
+                <th class="px-2">{{otjh_use}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#completearray}}
+            <tr>
+                <td class="px-2">{{0}}</td>
+                <td class="px-2">{{1}}</td>
+                <td class="px-2" style="background: {{3}}">{{2}}</td>
+                <td class="px-2" style="background: {{5}}">{{4}}</td>
+                <td class="px-2" style="background: {{7}}">{{6}}</td>
+            </tr>
+            {{/completearray}}
+        </tbody>
+    </table>
+</div>
+
+<div class="behind_table inner-div-admin-report" hidden>
+    <table class="table table-bordered table-striped table-hover">
+        <h3 class="bold">{{learner_behind}}</h3>
+        <thead>
+            <tr>
+                <th class="px-2">{{learner}}</th>
+                <th class="px-2">{{course}}</th>
+                <th class="px-2">{{hourslog}}</th>
+                <th class="px-2">{{course_comp}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#behindarray}}
+            <tr>
+                <td class="px-2">{{0}}</td>
+                <td class="px-2">{{1}}</td>
+                <td class="px-2" style="background: {{2}}">{{3}}</td>
+                <td class="px-2" style="background: {{4}}">{{5}}</td>
+            </tr>
+            {{/behindarray}}
+        </tbody>
+    </table>
+</div>
+
+<div class="signed_table inner-div-admin-report" hidden>
+    <table class="table table-bordered table-striped table-hover">
+        <h3 class="bold">{{learner_docmis}}</h3>
+        <thead>
+            <tr>
+                <th class="px-2">{{learner}}</th>
+                <th class="px-2">{{course}}</th>
+                <th class="px-2">{{reviewd}}</th>
+                <th class="px-2">{{learner_signed}}</th>
+                <th class="px-2">{{coach_s}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#signedarray}}
+            <tr>
+                <td class="px-2">{{0}}</td>
+                <td class="px-2">{{1}}</td>
+                <td class="px-2">{{2}}</td>
+                <td class="px-2" style="background: {{3}};">{{4}}</td>
+                <td class="px-2" style="background: {{5}};">{{6}}</td>
+            </tr>
+            {{/signedarray}}
+        </tbody>
+    </table>
+</div>
+
+<div class="plan_table inner-div-admin-report" hidden>
+    <table class="table table-bordered table-striped table-hover">
+        <h3 class="bold">{{learner_noplan}}</h3>
+        <thead>
+            <tr>
+                <th class="px-2">{{learner}}</th>
+                <th class="px-2">{{course}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#planarray}}
+            <tr>
+                <td class="px-2">{{0}}</td>
+                <td class="px-2">{{1}}</td>
+            </tr>
+            {{/planarray}}
+        </tbody>
+    </table>
+</div>
+</div>
+<script>
+    let course = document.getElementById('course_btn')
+    let coursetable = document.querySelector('.course_table')
+    function course_btn(){
+        if(coursetable.hidden == false){
+            coursetable.hidden = true
+            course.innerHTML = '{{show}} <b>{{all_apc}}</b>'
+            document.querySelector('.course_btn').className = 'btn btn-primary mb-2 mr-2 p-2 course_btn'
+        } else {
+            coursetable.hidden = false
+            course.innerHTML = '{{hide}} <b>{{all_apc}}</b>'
+            document.querySelector('.course_btn').className = 'btn btn-secondary mb-2 mr-2 p-2 course_btn'
+        }
+    }
+
+    let initial = document.getElementById('initial_btn')
+    let initialtable = document.querySelector('.initial_table')
+    function initial_btn(){
+        if(initialtable.hidden == false){
+            initialtable.hidden = true
+            initial.innerHTML = '{{show}} <b>{{learner_incomps}}</b>'
+            document.querySelector('.initial_btn').className = 'btn btn-primary mb-2 mr-2 p-2 initial_btn'
+        } else {
+            initialtable.hidden = false
+            initial.innerHTML = '{{hide}} <b>{{learner_incomps}}</b>'
+            document.querySelector('.initial_btn').className = 'btn btn-secondary mb-2 mr-2 p-2 initial_btn'
+        }
+    }
+
+    let complete = document.getElementById('complete_btn')
+    let completetable = document.querySelector('.complete_table')
+    function complete_btn(){
+        if(completetable.hidden == false){
+            completetable.hidden = true
+            complete.innerHTML = '{{show}} <b>{{learner_comps}}</b>'
+            document.querySelector('.complete_btn').className = 'btn btn-primary mb-2 mr-2 p-2 complete_btn'
+        } else {
+            completetable.hidden = false
+            complete.innerHTML = '{{hide}} <b>{{learner_comps}}</b>'
+            document.querySelector('.complete_btn').className = 'btn btn-secondary mb-2 mr-2 p-2 complete_btn'
+        }
+    }
+
+    let behind = document.getElementById('behind_btn')
+    let behindtable = document.querySelector('.behind_table')
+    function behind_btn(){
+        if(behindtable.hidden == false){
+            behindtable.hidden = true
+            behind.innerHTML = '{{show}} <b>{{learner_behind}}</b>'
+            document.querySelector('.behind_btn').className = 'btn btn-primary mb-2 mr-2 p-2 behind_btn'
+        } else {
+            behindtable.hidden = false
+            behind.innerHTML = '{{hide}} <b>{{learner_behind}}'
+            document.querySelector('.behind_btn').className = 'btn btn-secondary mb-2 mr-2 p-2 behind_btn'
+        }
+    }
+
+    let signed = document.getElementById('signed_btn')
+    let signedtable = document.querySelector('.signed_table')
+    function signed_btn(){
+        if(signedtable.hidden == false){
+            signedtable.hidden = true
+            signed.innerHTML = '{{show}} <b>{{learner_docmis}}</b>'
+            document.querySelector('.signed_btn').className = 'btn btn-primary mb-2 mr-2 p-2 signed_btn'
+        } else {
+            signedtable.hidden = false
+            signed.innerHTML = '{{hide}} <b>{{learner_docmis}}</b>'
+            document.querySelector('.signed_btn').className = 'btn btn-secondary mb-2 mr-2 p-2 signed_btn'
+        }
+    }
+
+    let plan = document.getElementById('plan_btn')
+    let plantable = document.querySelector('.plan_table')
+    function plan_btn(){
+        if(plantable.hidden == false){
+            plantable.hidden = true
+            plan.innerHTML = '{{show}} <b>{{learner_noplan}}</b>'
+            document.querySelector('.plan_btn').className = 'btn btn-primary mb-2 mr-2 p-2 plan_btn'
+        } else {
+            plantable.hidden = false
+            plan.innerHTML = '{{hide}} <b>{{learner_noplan}}</b>'
+            document.querySelector('.plan_btn').className = 'btn btn-secondary mb-2 mr-2 p-2 plan_btn'
+        }
+    }
+</script>

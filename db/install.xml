@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/offthejob/db" VERSION="20200213" COMMENT="XMLDB file for off the job"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>   
+ <TABLES>
+ <!--Off the Job Documents table for individual identification -->
+  <TABLE NAME="off_the_job_docs" COMMENT="db for off the job docs">
+   <FIELDS>
+     <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+     <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+     <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+    </FIELDS>
+    <KEYS>
+      <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      <KEY NAME="courseid" TYPE="foreign" FIELDS="courseid" REFTABLE="course" REFFIELDS="id"/>
+    </KEYS>
+  </TABLE>
+
+  <!--Off the job documents table, this stores a document as a record in the table-->
+  <TABLE NAME="off_the_job_docs_info" COMMENT="db for off the job docs info">
+   <FIELDS>
+     <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+     <FIELD NAME="docsid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+     <FIELD NAME="apprentice" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+     <FIELD NAME="reviewdate" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+     <FIELD NAME="standard" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+     <FIELD NAME="employerandstore" TYPE="text" NOTNULL="true"/>
+     <FIELD NAME="coach" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+     <FIELD NAME="managerormentor" TYPE="text" NOTNULL="true"/>
+     <FIELD NAME="progress" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+     <FIELD NAME="hours" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+     <FIELD NAME="progresscom" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="expectprogress" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+     <FIELD NAME="expecthours" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+     <FIELD NAME="otjhcom" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="recap" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+     <FIELD NAME="impact" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+     <FIELD NAME="details" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+     <FIELD NAME="detailsksb" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+     <FIELD NAME="detailimpact" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+     <FIELD NAME="todaymath" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="nextmath" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="todayeng" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="nexteng" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="todayict" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="nextict" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="activity" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+     <FIELD NAME="activityksb" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+     <FIELD NAME="agreedaction" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+     <FIELD NAME="employercomment" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+     <FIELD NAME="safeguarding" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="apprenticecomment" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="ntasigndate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+     <FIELD NAME="employsigndate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+     <FIELD NAME="learnsigndate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+     <FIELD NAME="alnsupport" TYPE="text" NOTNULL="false"/>
+    </FIELDS>
+    <KEYS>
+      <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      <KEY NAME="docsid" TYPE="foreign" FIELDS="docsid" REFTABLE="off_the_job_docs" REFFIELDS="id"/>
+    </KEYS>
+  </TABLE>
+
+  <!--Off the job documents table, this stores a document as a record in the table-->
+  <TABLE NAME="off_the_job_docs_draft" COMMENT="db for off the job docs info">
+   <FIELDS>
+     <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+     <FIELD NAME="docsid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+     <FIELD NAME="apprentice" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="reviewdate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+     <FIELD NAME="standard" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="employerandstore" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="coach" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="managerormentor" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="progress" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+     <FIELD NAME="hours" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+     <FIELD NAME="progresscom" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="expectprogress" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+     <FIELD NAME="expecthours" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+     <FIELD NAME="otjhcom" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="progressstatus" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="recap" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="impact" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="details" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="detailsksb" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="detailimpact" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="todaymath" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="nextmath" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="todayeng" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="nexteng" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="todayict" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="nextict" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="activity" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="activityksb" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="agreedaction" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="employercomment" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="safeguarding" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="apprenticecomment" TYPE="text" NOTNULL="false"/>
+     <FIELD NAME="ntasigndate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+     <FIELD NAME="employsigndate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+     <FIELD NAME="learnsigndate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+     <FIELD NAME="alnsupport" TYPE="text" NOTNULL="false"/>
+    </FIELDS>
+    <KEYS>
+      <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      <KEY NAME="docsid" TYPE="foreign" FIELDS="docsid" REFTABLE="off_the_job_docs" REFFIELDS="id"/>
+    </KEYS>
+  </TABLE>
+
+  <!--Off the job hours user info-->
+  <TABLE NAME="off_the_job_hours" COMMENT="db for off the job hours user">
+    <FIELDS>
+      <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+      <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="learner" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="qualification" TYPE="text" NOTNULL="false"/>
+    </FIELDS>
+    <KEYS>
+      <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      <KEY NAME="courseid" TYPE="foreign" FIELDS="courseid" REFTABLE="course" REFFIELDS="id"/>
+    </KEYS>
+  </TABLE>
+
+  <!--This is for the off the job records containing data -->
+  <TABLE NAME="off_the_job_hours_info" COMMENT="db for off the job hours info">
+    <FIELDS>
+      <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+      <FIELD NAME="hoursid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="date" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="activity" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="whatlink" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="impact" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="duration" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="initial" TYPE="text" NOTNULL="false"/>
+    </FIELDS>
+    <KEYS>
+      <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      <KEY NAME="hoursid" TYPE="foreign" FIELDS="hoursid" REFTABLE="off_the_job_hours" REFFIELDS="id"/>
+    </KEYS>
+  </TABLE>
+
+  <TABLE NAME="off_the_job_setup" COMMENT="db for the off the job setup">
+    <FIELDS>
+      <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+      <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="teachid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="totalmonths" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="otjhours" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="employerorstore" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="coach" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="managerormentor" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="learnersign" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="employersign" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="ntasign" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="startdate" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="hoursperweek" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="annuallw" TYPE="float" LENGTH="10" DECIMALS="2" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="planfilename" TYPE="text" NOTNULL="true"/>
+      <FIELD NAME="option" TYPE="text" NOTNULL="false"/>
+    </FIELDS>
+    <KEYS>
+      <KEY NAME="pimary" TYPE="primary" FIELDS="id"/>
+      <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      <KEY NAME="courseid" TYPE="foreign" FIELDS="courseid" REFTABLE="course" REFFIELDS="id"/>
+    </KEYS>
+  </TABLE>
+
+  <TABLE NAME="off_the_job_plans" COMMENT="db to store training plans">
+    <FIELDS>
+      <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+      <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="name" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="employer" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="startdate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="plannedendd" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="lengthoprog" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="otjh" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="epao" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="fundsource" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="bskbrm" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="bskre" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="learnstyle" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="sslearnr" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="ssemployr" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="apprenhpw" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="weekop" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="annuall" TYPE="float" LENGTH="10" DECIMALS="2" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="pdhours" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="areaostren" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="longtgoal" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="shorttgoal" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="iag" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="recopl" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="addsa" TYPE="text" NOTNULL="false"/>
+    </FIELDS>
+    <KEYS>
+      <KEY NAME="pimary" TYPE="primary" FIELDS="id"/>
+      <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      <KEY NAME="courseid" TYPE="foreign" FIELDS="courseid" REFTABLE="course" REFFIELDS="id"/>
+    </KEYS>
+  </TABLE>
+
+  <TABLE NAME="off_the_job_plans_modules" COMMENT="db to store training plans modules">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="plansid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="modpos" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="modname" TYPE="text" NOTNULL="false"/>
+        <FIELD NAME="modpsd" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="modrsd" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="modped" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="modred" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="modw" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="modotjh" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="modmod" TYPE="text" NOTNULL="false"/>
+        <FIELD NAME="modotjt" TYPE="text" NOTNULL="false"/>
+        <FIELD NAME="modaotjhc" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="pimary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="plansid" TYPE="foreign" FIELDS="plansid" REFTABLE="off_the_job_plans" REFFIELDS="id"/>
+      </KEYS>
+  </TABLE>
+
+  <TABLE NAME="off_the_job_plans_fs" COMMENT="db to store training plans functional skills">
+    <FIELDS>
+      <FIELD NAME="id" LENGTH="10" TYPE="int" NOTNULL="true" SEQUENCE="true"/>
+      <FIELD NAME="plansid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="fspos" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="fsname" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="fslevel" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="fsmod" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="fssd" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="fsped" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="fsaed" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="fsusd" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="fsuped" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="fsaead" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+    </FIELDS>
+    <KEYS>
+        <KEY NAME="pimary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="plansid" TYPE="foreign" FIELDS="plansid" REFTABLE="off_the_job_plans" REFFIELDS="id"/>
+    </KEYS>
+  </TABLE>
+
+  <TABLE NAME="off_the_job_plans_pr" COMMENT="db to store training plans progress review">
+    <FIELDS>
+      <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="true"/>
+      <FIELD NAME="plansid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="prpos" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="prtor" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="prpr" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      <FIELD NAME="prar" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+    </FIELDS>
+    <KEYS>
+        <KEY NAME="pimary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="plansid" TYPE="foreign" FIELDS="plansid" REFTABLE="off_the_job_plans" REFFIELDS="id"/>
+    </KEYS>
+  </TABLE>
+
+  <TABLE NAME="off_the_job_plans_log" COMMENT="db to store training plans change log">
+    <FIELDS>
+      <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="true"/>
+      <FIELD NAME="plansid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      <FIELD NAME="dateofc" TYPE="int" LENGTH="10" NOTNULL="false"/>
+      <FIELD NAME="log" TYPE="text" NOTNULL="false"/>
+    </FIELDS>
+    <KEYS>
+        <KEY NAME="pimary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="plansid" TYPE="foreign" FIELDS="plansid" REFTABLE="off_the_job_plans" REFFIELDS="id"/>
+    </KEYS>
+  </TABLE>
+ </TABLES>
+</XMLDB>

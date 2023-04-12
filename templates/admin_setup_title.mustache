@@ -1,0 +1,9 @@
+<div class="d-flex">
+    <button class="btn btn-primary mb-2 mr-2 p-2" onclick="window.location.href='./admin.php'">Back To Main Menu</button>
+    <form action="./otj_setup_admin.php" method="POST">
+        <button name="submit" type="submit" class="btn btn-primary mb-2 mr-2 p-2">Reset</button>
+        <input hidden readonly value="{{userid}}" name="userid">
+        <input hidden readonly value="{{courseid}}" name="courseid">
+    </form>
+</div>
+<h1 class="bold text-center">Off The Job - Initial Setup - {{username}} - {{coursename}}</h1>
