@@ -3,6 +3,8 @@ const form = document.querySelector('.sign-div');
 const canvas = document.querySelector('.sign-canvas');
 const clearBtn = document.querySelector('.clear-btn');
 const ctx = canvas.getContext('2d');
+ctx.fillStyle = 'white';
+ctx.fillRect(0,0,canvas.width,canvas.height);
 const subBtn = document.querySelector('.submit-btn');
 let wriitingMode = false;
 
@@ -47,7 +49,7 @@ const pointerDown = (event) => {
 
 //Event for submit button
 subBtn.addEventListener('click', (event) => {
-    const imageURL = canvas.toDataURL();
+    const imageURL = canvas.toDataURL('image/jpeg');
     const input = document.createElement('input');
     input.type = 'text';
     input.value = imageURL;

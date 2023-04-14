@@ -375,18 +375,15 @@ $pdf->setFont($font, '', 13);
 $pdf->Text(10, $pdf->GetY(), $strings['learner_sign']);
 if($array[26] !== null && !empty($array[26])){ 
     $learnsign = $lib->learnsigned($userid, $courseid);
-    $image = base64_decode((str_replace('data:image/png;base64,', '', $learnsign)));
+    $image = base64_decode((str_replace('data:image/jpeg;base64,', '', $learnsign)));
     $pdf->Image("@".$image, 10,$pdf->GetY()+10,$signwidth,50);
 }
 //nta signature
 $pdf->Text(($signwidth + 10), $pdf->GetY(), $strings['nta_sign']);
 if($array[25] !== null && !empty($array[25])){
     $ntasign = $lib->ntasign($userid, $courseid);
-    $image = base64_decode((str_replace('data:image/png;base64,', '', $ntasign)));
+    $image = base64_decode((str_replace('data:image/jpeg;base64,', '', $ntasign)));
     $pdf->Image("@".$image, ($signwidth + 10),$pdf->GetY()+10,$signwidth,50);
-    //Trying to solve the issue of signature not appearing on dev site
-    //$img = '<img src="@'.(substr_replace($ntasign, '', 0, 21)).'">';
-    //$pdf->writeHTML($img, true, false, false, true, false);
 }
 
 
