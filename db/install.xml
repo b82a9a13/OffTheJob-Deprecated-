@@ -166,6 +166,7 @@
     <KEYS>
       <KEY NAME="pimary" TYPE="primary" FIELDS="id"/>
       <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      <KEY NAME="teachid" TYPE="foreign" FIELDS="teachid" REFTABLE="user" REFFIELDS="id"/>
       <KEY NAME="courseid" TYPE="foreign" FIELDS="courseid" REFTABLE="course" REFFIELDS="id"/>
     </KEYS>
   </TABLE>
