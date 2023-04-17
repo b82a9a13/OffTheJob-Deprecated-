@@ -22,7 +22,7 @@ class updated_plan extends base {
         return "The user with id '".$this->userid."' updated a plan for the user with id '".$this->relateduserid."' and for the course with id '".$this->courseid."'";
     }
     public function get_url(){
-        return new \moodle_url('/local/offthejob/otj_plan?userid='.$this->relateduserid.'&courseid='.$this->courseid);
+        return new \moodle_url('/local/offthejob/otj_plan.php?userid='.$this->relateduserid.'&courseid='.$this->courseid);
     }
     public function get_id(){
         return $this->objectid;

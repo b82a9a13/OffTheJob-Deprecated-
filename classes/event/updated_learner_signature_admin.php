@@ -23,7 +23,7 @@ class updated_learner_signature_admin extends base {
         return "The user with id '".$this->userid."' updated the learner signature for the user with id '".$this->relateduserid."' and for the course with id '".$this->courseid."'";
     }
     public function get_url(){
-        return new \moodle_url('/local/offthejob/admin/php');
+        return new \moodle_url('/local/offthejob/admin.php');
     }
     public function get_id(){
         return $this->objectid;

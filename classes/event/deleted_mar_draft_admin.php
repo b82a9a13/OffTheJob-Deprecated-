@@ -22,7 +22,7 @@ class deleted_mar_draft_admin extends base {
         return "The user with id '".$this->userid."' deleted a monthly activity record for the user with id '".$this->relateduserid."' and for the course with id '".$this->courseid."'";
     }
     public function get_url(){
-        return new \moodle_url('/local/offthejob/otj_doc_admin?userid='.$this->relateduserid.'&courseid='.$this->courseid);
+        return new \moodle_url('/local/offthejob/otj_doc_admin.php?userid='.$this->relateduserid.'&courseid='.$this->courseid);
     }
     public function get_id(){
         return $this->objectid;
