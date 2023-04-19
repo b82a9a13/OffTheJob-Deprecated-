@@ -145,6 +145,9 @@ if(empty($_POST['type']) && empty($_SESSION['info'])){
         }
         $emptytemplate->userid = $userid;
         $emptytemplate->courseid = $courseid;
+        $tempValue = $array[16];
+        $array[16] = $array[17];
+        $array[17] = $tempValue;
         $emptytemplate->array = array_values(array($array));
         $emptytemplate->hidden = $hidden;
         $emptytemplate->hidden1 = $hidden1;
@@ -155,7 +158,7 @@ if(empty($_POST['type']) && empty($_SESSION['info'])){
         $info = $_SESSION['info'];
         $emptytemplate->userid = $info[0];
         $emptytemplate->courseid = $info[1];
-        $emptytemplate->id = $id;
+        $emptytemplate->id = $info[2];
         $emptytemplate->error_hidden = '';
 
         $array = $_SESSION['array'];
@@ -298,6 +301,9 @@ if(empty($_POST['type']) && empty($_SESSION['info'])){
         $emptytemplate->hidden = $hidden;
         $emptytemplate->hidden1 = $hidden1;
         $emptytemplate->hidden3 = $hidden3;
+        $tempValue = $array[16];
+        $array[16] = $array[17];
+        $array[17] = $tempValue;
         $emptytemplate->array = array_values(array($array));
     }
     echo $OUTPUT->render_from_template('local_offthejob/admin_mar', $emptytemplate);
