@@ -24,7 +24,7 @@ if(isset($_POST['submit'])){
     $num = 0;
     //Check apprentice input
     $apprentice = $_POST['apprentice'];
-    if(!preg_match("/^[a-z A-Z - ']*$/", $apprentice) || empty($apprentice)){
+    if(!preg_match("/^[a-z A-Z'\-]*$/", $apprentice) || empty($apprentice)){
         $num++;
         $error = true;
         $check[0] = 'red';
@@ -94,7 +94,7 @@ if(isset($_POST['submit'])){
 
         //Check recap input
     $recap = $_POST['recap'];
-    if(!preg_match("/^[a-z A-Z ,.;:!-]*$/", $recap)){
+    if(!preg_match("/^[a-z A-Z ,.;:!\-]*$/", $recap)){
         $num++;
         $error = true;
         $check[8] = 'red';
@@ -102,7 +102,7 @@ if(isset($_POST['submit'])){
 
     //Check impact input
     $impact = $_POST['impact'];
-    if(!preg_match("/^[a-z A-Z ,.;:!-]*$/", $impact)){
+    if(!preg_match("/^[a-z A-Z ,.;:!\-]*$/", $impact)){
         $num++;
         $error = true;
         $check[9] = 'red';
@@ -110,7 +110,7 @@ if(isset($_POST['submit'])){
 
     //Check details input
     $details = $_POST['details'];
-    if(!preg_match("/^[a-zA-Z0-9 ,.;:!-]*$/", $details) || empty($details)){
+    if(!preg_match("/^[a-zA-Z0-9 ,.;:!\-]*$/", $details) || empty($details)){
         $num++;
         $error = true;
         $check[10] = 'red';
@@ -118,7 +118,7 @@ if(isset($_POST['submit'])){
 
     //Check detailsksb input
     $detailsksb = $_POST['detailsksb'];
-    if(!preg_match("/^[a-zA-Z0-9 ,.;:!-]*$/", $detailsksb) || empty($detailsksb)){
+    if(!preg_match("/^[a-zA-Z0-9 ,.;:!\-]*$/", $detailsksb) || empty($detailsksb)){
         $num++;
         $error = true;
         $check[11] = 'red';
@@ -126,7 +126,7 @@ if(isset($_POST['submit'])){
 
     //Check detailimpact input
     $detailimpact = $_POST['detailimpact'];
-    if(!preg_match("/^[a-z A-Z ,.;:!-]*$/", $detailimpact) || empty($detailimpact)){
+    if(!preg_match("/^[a-z A-Z ,.;:!\-]*$/", $detailimpact) || empty($detailimpact)){
         $num++;
         $error = true;
         $check[12] = 'red';
@@ -134,7 +134,7 @@ if(isset($_POST['submit'])){
 
         //Check tmath input
     $tmath = $_POST['todaymath'];
-    if(!preg_match("/^[a-z A-Z ,.;:!-]*$/", $tmath) || empty($tmath)){
+    if(!preg_match("/^[a-z A-Z ,.;:!\-]*$/", $tmath) || empty($tmath)){
         $num++;
         $error = true;
         $check[13] = 'red';
@@ -142,7 +142,7 @@ if(isset($_POST['submit'])){
 
     //Check nmath input
     $nmath = $_POST['nextmath'];
-    if(!preg_match("/^[a-z A-Z ,.;:!-]*$/", $nmath) || empty($nmath)){
+    if(!preg_match("/^[a-z A-Z ,.;:!\-]*$/", $nmath) || empty($nmath)){
         $num++;
         $error = true;
         $check[14] = 'red';
@@ -150,7 +150,7 @@ if(isset($_POST['submit'])){
 
     //Check tict input
     $tict = $_POST['todayict'];
-    if(!preg_match("/^[a-z A-Z ,.;:!-]*$/", $tict)){
+    if(!preg_match("/^[a-z A-Z ,.;:!\-]*$/", $tict)){
         $num++;
         $error = true;
         $check[15] = 'red';
@@ -158,7 +158,7 @@ if(isset($_POST['submit'])){
 
     //Check today english
     $teng = $_POST['todayenglish'];
-    if(!preg_match("/^[a-z A-Z ,.;:!-]*$/", $teng) || empty($teng)){
+    if(!preg_match("/^[a-z A-Z ,.;:!\-]*$/", $teng) || empty($teng)){
         $num++;
         $error = true;
         $check[16] = 'red';
@@ -166,7 +166,7 @@ if(isset($_POST['submit'])){
 
     //Check next english
     $neng = $_POST['nextenglish'];
-    if(!preg_match("/^[a-z A-Z ,.;:!-]*$/", $neng) || empty($neng)){
+    if(!preg_match("/^[a-z A-Z ,.;:!\-]*$/", $neng) || empty($neng)){
         $num++;
         $error = true;
         $check[17] = 'red';
@@ -174,7 +174,7 @@ if(isset($_POST['submit'])){
 
     //Check nict input
     $nict = $_POST['nextict'];
-    if(!preg_match("/^[a-z A-Z ,.;:!-]*$/", $nict)){
+    if(!preg_match("/^[a-z A-Z ,.;:!\-]*$/", $nict)){
         $num++;
         $error = true;
         $check[18] = 'red';
@@ -182,7 +182,7 @@ if(isset($_POST['submit'])){
 
     //Check activity input
     $activity = $_POST['activity'];
-    if(!preg_match("/^[a-z A-Z ,.;:!-]*$/", $activity) || empty($activity)){
+    if(!preg_match("/^[a-z A-Z ,.;:!\-]*$/", $activity) || empty($activity)){
         $num++;
         $error = true;
         $check[19] = 'red';
@@ -192,7 +192,7 @@ if(isset($_POST['submit'])){
     $activityksb = '';
     //Check safeguard input
     $safeguard = $_POST['safeguarding'];
-    if(!preg_match("/^[a-zA-Z0-9 ,.;:!-]*$/", $safeguard) || empty($safeguard)){
+    if(!preg_match("/^[a-zA-Z0-9 ,.;:!\-]*$/", $safeguard) || empty($safeguard)){
         $num++;
         $error = true;
         $check[21] = 'red';
@@ -200,7 +200,7 @@ if(isset($_POST['submit'])){
 
     //Check aaction input
     $aaction = $_POST['agreedaction'];
-    if(!preg_match("/^[a-zA-Z0-9 ,.;:!-]*$/", $aaction) || empty($aaction)){
+    if(!preg_match("/^[a-zA-Z0-9 ,.;:!\-]*$/", $aaction) || empty($aaction)){
         $num++;
         $error = true;
         $check[22] = 'red';
@@ -270,7 +270,7 @@ if(isset($_POST['submit'])){
 
     //Check apprentice comment input
     $apprencom = $_POST['apprenticecomment'];
-    if(!preg_match("/^[a-zA-Z0-9 ,.;:!-]*$/", $apprencom) || empty($safeguard)){
+    if(!preg_match("/^[a-zA-Z0-9 ,.;:!\-]*$/", $apprencom) || empty($safeguard)){
         $num++;
         $error = true;
         $check[24] = 'red';

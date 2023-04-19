@@ -323,7 +323,7 @@ if(isset($_POST['submit'])){
                 $logscheck[$int][0] = 'red';
             }
             $log = $_POST["log$int"];
-            if(!preg_match("/^[a-z A-Z.,!-0-9]*$/", $log) || empty($log)){
+            if(!preg_match("/^[a-z A-Z.,!0-9\-]*$/", $log) || empty($log)){
                 $error = true;
                 $total++;
                 $logscheck[$int][1] = 'red';

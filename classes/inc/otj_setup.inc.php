@@ -81,7 +81,7 @@ if(isset($_POST['submit'])){
 
     $filenames = $lib->training_plans();
     $fileerror = true;
-    if(!preg_match("/^[0-9a-zA-Z.-]*$/", $planfilename) || empty($planfilename)){
+    if(!preg_match("/^[0-9a-zA-Z.\-]*$/", $planfilename) || empty($planfilename)){
         $header = "$header&input$total=planfilename";
         $error = true;
         $total++;

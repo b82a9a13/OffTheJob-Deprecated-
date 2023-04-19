@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
     $total = 0;
     $leftcheck = [];
     $name = $_POST['name'];
-    if(!preg_match("/^[a-z A-Z]*$/", $name) || empty($name)){
+    if(!preg_match("/^[a-z A-Z'\-]*$/", $name) || empty($name)){
         $error = true;
         $total++;
         $leftcheck[0] = 'red';
@@ -521,7 +521,7 @@ if(isset($_POST['submit'])){
                 $logscheck[$int][0] = 'red';
             }
             $log = $_POST["log$int"];
-            if(!preg_match("/^[a-z A-Z.,!-0-9]*$/", $log) || empty($log)){
+            if(!preg_match("/^[a-z A-Z.,!0-9\-]*$/", $log) || empty($log)){
                 $error = true;
                 $total++;
                 $logscheck[$int][1] = 'red';

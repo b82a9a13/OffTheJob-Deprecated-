@@ -19,14 +19,14 @@ if(isset($_POST['submit'])){
 
     $leftcheck = [];
     $name = $_POST['name'];
-    if(!preg_match("/^[a-z A-Z ' -]*$/", $name) || empty($name)){
+    if(!preg_match("/^[a-z A-Z'\-]*$/", $name) || empty($name)){
         $error = true;
         $total++;
         $leftcheck[0] = 'red';
     }
 
     $employer = $_POST['employer'];
-    if(!preg_match("/^[a-z A-Z]*$/", $employer) || empty($employer)){
+    if(!preg_match("/^[a-z A-Z'\-]*$/", $employer) || empty($employer)){
         $error = true;
         $total++;
         $leftcheck[1] = 'red';
