@@ -235,7 +235,7 @@
       <FIELD NAME="plansid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
       <FIELD NAME="fspos" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
       <FIELD NAME="fsname" TYPE="text" NOTNULL="false"/>
-      <FIELD NAME="fslevel" TYPE="text" NOTNULL="false"/>
+      <FIELD NAME="fslevel" TYPE="int" LENGTH="10" NOTNULL="false"/>
       <FIELD NAME="fsmod" TYPE="text" NOTNULL="false"/>
       <FIELD NAME="fssd" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
       <FIELD NAME="fsped" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>

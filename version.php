@@ -24,5 +24,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_offthejob';
-$plugin->version = 189;
+$plugin->version = 190;
 $plugin->requires = 2016052314; // Moodle version
