@@ -38,17 +38,17 @@ if(isset($_POST['submit'])){
         $error = true;
         $total++;
     }
-    if(!preg_match("/^[a-z A-Z]*$/", $eors) || empty($eors)){
+    if(!preg_match("/^[a-z A-Z'\-]*$/", $eors) || empty($eors)){
         $header = "$header&input$total=eors&text$total=$eors";
         $error = true;
         $total++;
     }
-    if(!preg_match("/^[a-z A-Z]*$/", $coach) || empty($coach)){
+    if(!preg_match("/^[a-z A-Z'\-]*$/", $coach) || empty($coach)){
         $header = "$header&input$total=coach&text$total=$coach";
         $error = true;
         $total++;
     }
-    if(!preg_match("/^[a-z A-Z]*$/", $mom) || empty($mom)){
+    if(!preg_match("/^[a-z A-Z'\-]*$/", $mom) || empty($mom)){
         $header = "$header&input$total=mom&text$total=$mom";
         $error = true;
         $total++;

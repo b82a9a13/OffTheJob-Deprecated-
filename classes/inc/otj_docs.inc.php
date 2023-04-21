@@ -69,7 +69,7 @@ if(isset($_POST['submit'])){
 
     //check manager or mentor input
     $mom = $_POST['managerormentor'];
-    if(!preg_match("/^[a-z A-Z'\-]*$/", $coach) ||empty($mom)){
+    if(!preg_match("/^[a-z A-Z'\-]*$/", $mom) ||empty($mom)){
         $string = "$string&input$num=mom";
         $num++;
         $error = true;
@@ -93,7 +93,7 @@ if(isset($_POST['submit'])){
 
     //Check recap input
     $recap = $_POST['recap'];
-    if(!preg_match("/^[a-z A-Z ,.;:!()'\-]*$/", $recap)){
+    if(!preg_match("/^[a-zA-Z0-9 ,.;:!()'\-]*$/", $recap)){
         $string = "$string&input$num=recap";
         $num++;
         $error = true;
@@ -101,7 +101,7 @@ if(isset($_POST['submit'])){
 
     //Check impact input
     $impact = $_POST['impact'];
-    if(!preg_match("/^[a-z A-Z ,.;:!()'\-]*$/", $impact)){
+    if(!preg_match("/^[a-zA-Z0-9 ,.;:!()'\-]*$/", $impact)){
         $string = "$string&input$num=impact";
         $num++;
         $error = true;
@@ -125,7 +125,7 @@ if(isset($_POST['submit'])){
 
     //Check detailimpact input
     $detailimpact = $_POST['detailimpact'];
-    if(!preg_match("/^[a-z A-Z0-9 ,.;:!()'\-]*$/", $detailimpact) || empty($detailimpact)){
+    if(!preg_match("/^[a-zA-Z0-9 ,.;:!()'\-]*$/", $detailimpact) || empty($detailimpact)){
         $string = "$string&input$num=detailimpact";
         $num++;
         $error = true;
@@ -133,7 +133,7 @@ if(isset($_POST['submit'])){
 
     //Check tmath input
     $tmath = $_POST['todaymath'];
-    if(!preg_match("/^[a-z A-Z0-9 ,.;:!()'\-]*$/", $tmath) || empty($tmath)){
+    if(!preg_match("/^[a-zA-Z0-9 ,.;:!()'\-]*$/", $tmath) || empty($tmath)){
         $string = "$string&input$num=tmath";
         $num++;
         $error = true;
@@ -141,7 +141,7 @@ if(isset($_POST['submit'])){
 
     //Check nmath input
     $nmath = $_POST['nextmath'];
-    if(!preg_match("/^[a-z A-Z0-9 ,.;:!()'\-]*$/", $nmath) || empty($nmath)){
+    if(!preg_match("/^[a-zA-Z0-9 ,.;:!()'\-]*$/", $nmath) || empty($nmath)){
         $string = "$string&input$num=nmath";
         $num++;
         $error = true;
@@ -149,7 +149,7 @@ if(isset($_POST['submit'])){
 
     //Check tict input
     $tict = $_POST['todayict'];
-    if(!preg_match("/^[a-z A-Z0-9 ,.;:!()'\-]*$/", $tict)){
+    if(!preg_match("/^[a-zA-Z0-9 ,.;:!()'\-]*$/", $tict)){
         $string = "$string&input$num=tict";
         $num++;
         $error = true;
@@ -157,7 +157,7 @@ if(isset($_POST['submit'])){
 
     //Check nict input
     $nict = $_POST['nextict'];
-    if(!preg_match("/^[a-z A-Z0-9 ,.;:!()'\-]*$/", $nict)){
+    if(!preg_match("/^[a-zA-Z0-9 ,.;:!()'\-]*$/", $nict)){
         $string = "$string&input$num=nict";
         $num++;
         $error = true;
@@ -165,7 +165,7 @@ if(isset($_POST['submit'])){
 
     //Check activity input
     $activity = $_POST['activity'];
-    if(!preg_match("/^[a-z A-Z0-9 ,.;:!()'\-]*$/", $activity) || empty($activity)){
+    if(!preg_match("/^[a-zA-Z0-9 ,.;:!()'\-]*$/", $activity) || empty($activity)){
         $string = "$string&input$num=activity";
         $num++;
         $error = true;
@@ -294,7 +294,7 @@ if(isset($_POST['submit'])){
 
     //Check today english
     $teng = $_POST['todayenglish'];
-    if(!preg_match("/^[a-z A-Z0-9 ,.;:!()'\-]*$/", $teng) || empty($teng)){
+    if(!preg_match("/^[a-zA-Z0-9 ,.;:!()'\-]*$/", $teng) || empty($teng)){
         $string = "$string&input$num=teng";
         $num++;
         $error = true;
@@ -302,7 +302,7 @@ if(isset($_POST['submit'])){
 
     //Check next english
     $neng = $_POST['nextenglish'];
-    if(!preg_match("/^[a-z A-Z0-9 ,.;:!()'\-]*$/", $neng) || empty($neng)){
+    if(!preg_match("/^[a-zA-Z0-9 ,.;:!()'\-]*$/", $neng) || empty($neng)){
         $string = "$string&input$num=neng";
         $num++;
         $error = true;
@@ -310,7 +310,7 @@ if(isset($_POST['submit'])){
 
     //Check aln support
     $alnsupport = $_POST['alnsupport'];
-    if(!preg_match("/^[a-z A-Z0-9 ,.;:!()'\-]*$/", $alnsupport)){
+    if(!preg_match("/^[a-zA-Z0-9 ,.;:!()'\-]*$/", $alnsupport)){
         $string = "$string&input$num=alnsupport";
         $num++;
         $error = true;
@@ -318,7 +318,7 @@ if(isset($_POST['submit'])){
 
     //Check progress comment
     $progcom = $_POST['progcom'];
-    if(!preg_match("/^[a-z A-Z0-9 ,.;:!()'\-]*$/", $progcom) || empty($progcom)){
+    if(!preg_match("/^[a-zA-Z0-9 ,.;:!()'\-]*$/", $progcom) || empty($progcom)){
         $string = "$string&input$num=progcom";
         $num++;
         $error = true;
@@ -326,7 +326,7 @@ if(isset($_POST['submit'])){
 
     //Check otjh comment
     $otjhcom = $_POST['otjhcom'];
-    if(!preg_match("/^[a-z A-Z0-9 ,.;:!()'\-]*$/", $otjhcom) || empty($otjhcom)){
+    if(!preg_match("/^[a-zA-Z0-9 ,.;:!()'\-]*$/", $otjhcom) || empty($otjhcom)){
         $string = "$string&input$num=otjhcom";
         $num++;
         $error = true;

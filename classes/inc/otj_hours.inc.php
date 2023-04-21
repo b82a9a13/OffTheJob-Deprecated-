@@ -21,10 +21,10 @@ if (isset($_POST['submit'])){
     array_push($array, [$date, $activity, $whatlink, $impact, $duration, $initial]);
     //Check for empty values
     $checkarray = [0, 0, 0, 0, 0, 0, 0, 0];
-    if(!preg_match("/^[a-zA-Z .!, 0-9]*$/", $activity) || empty($activity)){
+    if(!preg_match("/^[a-zA-Z.!, 0-9]*$/", $activity) || empty($activity)){
         $checkarray[0] = 1;
     }
-    if(!preg_match("/^[a-zA-Z ., 0-9]*$/", $whatlink) || empty($whatlink)){
+    if(!preg_match("/^[a-zA-Z., 0-9]*$/", $whatlink) || empty($whatlink)){
         $checkarray[1] = 1;
     }
     if(!preg_match("/^[a-zA-Z .!,]*$/", $impact) || empty($impact)){
