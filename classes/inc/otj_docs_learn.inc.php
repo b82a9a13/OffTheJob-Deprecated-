@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
 
     //Check apprentice comment input
     $apprencom = $_POST['apprenticecomment'];
-    if(!preg_match("/^[a-zA-Z0-9 ,.;:!\-]*$/", $apprencom) || empty($apprencom)){
+    if(!preg_match("/^[a-zA-Z0-9 ,.;:!()\-]*$/", $apprencom) || empty($apprencom)){
         $string = "$string&input$num=apprencom";
         $num++;
         $error = true;
