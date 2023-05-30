@@ -53,7 +53,7 @@ if(isset($_GET['id']) || isset($_POST['id'])){
             $error = true;
             $checkarray[0] = 'red';
         }
-        if(!preg_match("/^[a-zA-Z .!,0-9]*$/", $activity) || empty($activity)){
+        if(!preg_match("/^[a-zA-Z 0-9.!,\-()\/?#]*$/", $activity) || empty($activity)){
             $error = true;
             $checkarray[1] = 'red';
         }
@@ -61,11 +61,11 @@ if(isset($_GET['id']) || isset($_POST['id'])){
             $error = true;
             $checkarray[2] = 'red';
         }
-        if(!preg_match("/^[a-zA-Z .,0-9]*$/", $impact) || empty($impact)){
+        if(!preg_match("/^[a-zA-Z 0-9.!,\-()\/?#]*$/", $impact) || empty($impact)){
             $error = true;
             $checkarray[3] = 'red';
         }
-        if(!preg_match("/^[0-9]*$/", $duration) || empty($duration)){
+        if(!preg_match("/^[0-9.]*$/", $duration) || empty($duration)){
             $error = true;
             $checkarray[4] = 'red';
         }

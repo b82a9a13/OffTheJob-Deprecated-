@@ -6,7 +6,7 @@ if(isset($_GET['id'])){
     $id = $_GET['id'];
     $type = $_GET['type'];
     $courseid = $_GET['courseid'];
-    if(!preg_match("/^[a-zA-Z .!, 0-9]*$/", $id) || empty($id)){
+    if(!preg_match("/^[0-9]*$/", $id) || empty($id)){
         $string = 'Location: ../../otj_hours_learn.php';
     } 
     elseif (!preg_match("/^[a-z]*$/", $type) || empty($type)){
