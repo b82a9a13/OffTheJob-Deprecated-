@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__.'/../../../../config.php');
 use local_offthejob\lib;
-$lib = new lib;
+$lib = new lib();
 if(isset($_GET['id']) || isset($_POST['id'])){
     $userid = $_GET['userid'];
     $courseid = $_GET['courseid'];

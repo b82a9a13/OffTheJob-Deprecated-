@@ -8,16 +8,9 @@
 // Used for the teacher to view employer comment on MAR
 
 require_once(__DIR__.'/../../../../../config.php');
-
 use local_offthejob\lib;
-
 require_login();
-
 $lib = new lib();
-
-$enrolss = $lib->get_enrolments();
-$context = context_course::instance($enrolss[0][2]);
-require_capability('local/offthejob:teacher', $context);
 
 $file = $_GET['file'];
 $userid = $_GET['userid'];
@@ -32,6 +25,8 @@ if(!preg_match("/^[0-9a-zA-Z.-]*$/", $file) || empty($file)){
     echo("<p>Invalid Courseid</p>");
     exit();
 } else {
+    $context = context_course::instance($courseid);
+    require_capability('local/offthejob:teacher', $context);
     $filename = explode('-',$file);
     if($filename[0] === $userid && $filename[1] === $courseid){
         header("Content-type: application/pdf");
@@ -39,6 +34,5 @@ if(!preg_match("/^[0-9a-zA-Z.-]*$/", $file) || empty($file)){
     } else {
         echo("<p>Invalid File!</p>");
     }
-
 }
 ?>

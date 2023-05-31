@@ -1,19 +1,16 @@
 <?php
 require_once(__DIR__.'/../../../../config.php');
 use local_offthejob\lib;
-
 require_login();
 $lib = new lib();
 
-$array = $lib->learner_enrol();
-$context = context_course::instance($array[0][2]);
-require_capability('local/offthejob:student', $context);
-
 $courseid = $_GET['courseid'];
-if(!preg_match("/^[0-9]*$/",$courseid) || empty($courseid)){
+if(!preg_match("/^[0-9]*$/",$courseid) || empty($courseid)) {
     header("Location: ../../learner.php");
     exit();
 }
+$context = context_course::instance($courseid);
+require_capability('local/offthejob:student', $context);
 
 require_once($CFG->libdir.'/filelib.php');
 require_once($CFG->libdir.'/tcpdf/tcpdf.php');

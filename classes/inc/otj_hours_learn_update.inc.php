@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__.'/../../../../config.php');
 use local_offthejob\lib;
-$lib = new lib;
+$lib = new lib();
 if(isset($_GET['id'])){
     $id = $_GET['id'];
     $type = $_GET['type'];

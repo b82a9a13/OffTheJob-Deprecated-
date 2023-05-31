@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__.'/../../../../config.php');
 use local_offthejob\lib;
-$lib = new lib;
+$lib = new lib();
 if (isset($_POST['submit'])){
     $array = [];
     $string = "Location: ../../otj_hours_learn.php?input=success";

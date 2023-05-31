@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__.'/../../../../config.php');
 use local_offthejob\lib;
-$lib = new lib;
+$lib = new lib();
 
 //Check initial inputs and if sumbit is set
 if(isset($_POST['submit'])){

@@ -8,15 +8,9 @@
 // Used for the teacher to manage their learners off the job
 
 require_once(__DIR__.'/../../../../../config.php');
-
 use local_offthejob\lib;
-
 require_login();
 $lib = new lib();
-
-$array = $lib->learner_enrol();
-$context = context_course::instance($array[0][2]);
-require_capability('local/offthejob:student', $context);
 
 $file = $_GET['file'];
 $userid = $lib->get_current_user()[0];
@@ -28,6 +22,8 @@ if(!preg_match("/^[0-9a-zA-Z.-]*$/", $file) || empty($file)){
     echo("<p>Invalid Courseid</p>");
     exit();
 } else {
+    $context = context_course::instance($courseid);
+    require_capability('local/offthejob:student', $context);
     $filename = explode('-',$file);
     if($filename[0] === $userid && $filename[1] === $courseid){
         header("Content-type: application/pdf");
@@ -36,7 +32,4 @@ if(!preg_match("/^[0-9a-zA-Z.-]*$/", $file) || empty($file)){
         echo("<p>Invalid File!</p>");
     }
 }
-
-
-
 ?>

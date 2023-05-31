@@ -2153,4 +2153,10 @@ class lib{
         asort($array);
         return $array;
     }
+
+    //Used to get the record of a course from a course id
+    public function get_course_record($id){
+        global $DB;
+        return $DB->get_record_sql('SELECT * FROM {course} WHERE id = ?',[$id]);
+    }
 }
