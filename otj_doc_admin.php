@@ -8,14 +8,13 @@
 
 //Used for admin activity report page
 require_once(__DIR__.'/../../config.php');
-
 require_login();
 
 $context = context_system::instance();
 require_capability('local/offthejob:manager', $context);
 
 use local_offthejob\lib;
-$lib = new lib;
+$lib = new lib();
 
 $userid = $_GET['userid'];
 $courseid = $_GET['courseid'];
@@ -29,12 +28,12 @@ if($_SESSION['info'] !== null){
     $courseid = $_SESSION['info'][1];
 }
 
-if(!preg_match("/^[0-9]*$/", $userid) || empty($userid)){
-    header("Location: ./admin.php");
-} elseif(!preg_match("/^[0-9]*$/", $courseid) || empty($courseid)){
+if(!preg_match("/^[0-9]*$/", $userid) || 
+    empty($userid) || 
+    !preg_match("/^[0-9]*$/", $courseid) || 
+    empty($courseid)) {
     header("Location: ./admin.php");
 }
-
 $username = $lib->get_username($userid);
 $coursename = $lib->get_coursename($courseid);
 

@@ -8,24 +8,35 @@
 // Used for the teacher to manage their learners off the job
 
 require_once(__DIR__.'/../../config.php');
-
 use local_offthejob\lib;
-
 require_login();
+$lib = new lib();
 
-$lib = new lib;
-
-$enrolss = $lib->get_enrolments();
-$context = context_course::instance($enrolss[0][2]);
+$userid = $_GET['userid'];
+$courseid = $_GET['courseid'];
+if(!preg_match("/^[0-9]*$/", $userid) || 
+    empty($userid) || 
+    !preg_match("/^[0-9]*$/", $courseid) || 
+    empty($courseid)) {
+    header('Location: ./teacher.php');
+    exit();
+}
+$context = context_course::instance($courseid);
 require_capability('local/offthejob:teacher', $context);
-
-$username = $lib->get_username($_GET['userid']);
-$coursename = $lib->get_coursename($_GET['courseid']);
+$username = $lib->get_username($userid);
+$coursename = $lib->get_coursename($courseid);
 
 $PAGE->set_context($context);
 $PAGE->set_url(new moodle_url('/local/offthejob/otj_hours.php'));
 $PAGE->set_title(get_string('otjh', 'local_offthejob').' - '.$username->username .' - Add new record');
 $PAGE->set_heading(get_string('otjh', 'local_offthejob').' - '.$username->username.' - Add new record');
+$PAGE->set_pagelayout('incourse');
+try{
+    $PAGE->set_course($lib->get_course_record($courseid));
+} catch(Exception $e){
+    header('Location: ./teacher.php');
+    exit();
+}
 
 echo $OUTPUT->header();
 

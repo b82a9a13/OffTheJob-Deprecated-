@@ -8,35 +8,47 @@
 // Used for the teacher to manage their learners off the job
 
 require_once(__DIR__.'/../../config.php');
-
 use local_offthejob\lib;
-
 require_login();
-
 $lib = new lib();
-$username = $lib->get_username($_GET['userid']);
-$coursename = $lib->get_coursename($_GET['courseid']);
 
-$enrolss = $lib->get_enrolments();
-$context = context_course::instance($enrolss[0][2]);
+$userid = $_GET['userid'];
+$courseid = $_GET['courseid'];
+if(!preg_match("/^[0-9]*$/", $userid) || 
+    empty($userid) || 
+    !preg_match("/^[0-9]*$/", $courseid) || 
+    empty($courseid)) {
+    header('Location: ./teacher.php');
+    exit();
+}
+$context = context_course::instance($courseid);
 require_capability('local/offthejob:teacher', $context);
+$username = $lib->get_username($userid);
+$coursename = $lib->get_coursename($courseid);
 
 $PAGE->set_context($context);
 $PAGE->set_url(new moodle_url('/local/offthejob/otj_doc.php'));
 $PAGE->set_title(get_string('otjd', 'local_offthejob').' - '.$username->username);
 $PAGE->set_heading(get_string('otjd', 'local_offthejob').' - '.$username->username);
+$PAGE->set_pagelayout('incourse');
+try{
+    $PAGE->set_course($lib->get_course_record($courseid));
+} catch(Exception $e){
+    header('Location: ./teacher.php');
+    exit();
+}
 
 echo $OUTPUT->header();
 
 //check if record exists
-$existence = $lib->docs_exists($_GET['userid'], $_GET['courseid']);
+$existence = $lib->docs_exists($userid, $courseid);
 
 
 
 //Section for draft
 $hidden0 = 'hidden';
-$userid = $_GET['userid'];
-$courseid = $_GET['courseid'];
+$userid = $userid;
+$courseid = $courseid;
 if($lib->draft_exists($userid, $courseid) == true){
     $draft = get_string('draft', 'local_offthejob');
     $editdraft = get_string('draftedit', 'local_offthejob');
@@ -64,8 +76,8 @@ if($_GET['form'] == 'true'){
 $martemplate = (object)[
     'mar' => get_string('mar', 'local_offthejob'),
     'btm' => get_string('btm', 'local_offthejob'),
-    'userid' => $_GET['userid'],
-    'courseid' => $_GET['courseid'],
+    'userid' => $userid,
+    'courseid' => $courseid,
     'draft' => $draft,
     'editdraft' => $editdraft,
     'hidden' => $hidden0,
@@ -170,7 +182,7 @@ if($_GET['type'] == 'error'){
 if($error !== null && $error2 == false){
     if($error == true){
         echo"<h2 class='text-danger bold'>$string</h2>";
-        $array = $lib->get_draft($_GET['userid'], $_GET['courseid']);
+        $array = $lib->get_draft($userid, $courseid);
     } elseif ($error == false){
         echo"<h2 class='bold text-success'>Success</h2>";
     }
@@ -233,8 +245,8 @@ if($form == true){
         'learner_sign' => get_string('learner_sign', 'local_offthejob'),
         'submit' => get_string('submit', 'local_offthejob'),
         'date' => get_string('date', 'local_offthejob'),
-        'userid' => $_GET['userid'],
-        'courseid' => $_GET['courseid'],
+        'userid' => $userid,
+        'courseid' => $courseid,
         'nta_sign' => get_string('nta_sign', 'local_offthejob'),
         'array' => array_values(array($array)),
         'ntasig' => $signstring,

@@ -17,7 +17,7 @@ require_capability('local/offthejob:manager', $context);
 
 use local_offthejob\lib;
 
-$lib = new lib;
+$lib = new lib();
 
 $PAGE->set_context($context);
 $PAGE->set_url(new moodle_url('/local/offthejob/admin_reports.php'));

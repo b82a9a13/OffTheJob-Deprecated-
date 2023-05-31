@@ -15,7 +15,7 @@ $context = context_system::instance();
 require_capability('local/offthejob:manager', $context);
 
 use local_offthejob\lib;
-$lib = new lib;
+$lib = new lib();
 
 $userid = $_GET['userid'];
 $courseid = $_GET['courseid'];
@@ -30,9 +30,12 @@ if(!empty($_SESSION['info'])){
     $courseid = $_SESSION['info'][1];
 }
 
-if(!preg_match("/^[0-9]*$/", $userid) || empty($userid)){
+if(!preg_match("/^[0-9]*$/", $userid) || 
+    empty($userid) || 
+    !preg_match("/^[0-9]*$/", $courseid) || 
+    empty($courseid)) {
     header("Location: ./admin.php");
-} elseif(!preg_match("/^[0-9]*$/", $courseid) || empty($courseid)){
+} elseif(){
     header("Location: ./admin.php");
 }
 

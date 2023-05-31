@@ -12,22 +12,30 @@ require_once(__DIR__.'/../../config.php');
 use local_offthejob\lib;
 
 require_login();
-
 $lib = new lib();
-
-$array = $lib->learner_enrol();
-$context = context_course::instance($array[0][2]);
-require_capability('local/offthejob:student', $context);
 
 $user = $lib->get_current_user();
 $username = $lib->get_username($user[0]);
 $courseid = $_GET['courseid'];
+if(!preg_match("/^[0-9]*$/", $courseid) || empty($courseid)){
+    header('Location: ./learner.php');
+    exit();
+}
+$context = context_course::instance($courseid);
+require_capability('local/offthejob:student', $context);
 $coursename = $lib->get_coursename($courseid);
 
 $PAGE->set_context($context);
 $PAGE->set_url(new moodle_url('/local/offthejob/otj_hours_learn.php'));
 $PAGE->set_title(get_string('otjh', 'local_offthejob').' - '.$user[1] .' - Add new record');
 $PAGE->set_heading(get_string('otjh', 'local_offthejob').' - '.$user[1].' - Add new record');
+$PAGE->set_pagelayout('incourse');
+try{
+    $PAGE->set_course($lib->get_course_record($courseid));
+} catch(Exception $e){
+    header('Location: ./learner.php');
+    exit();
+}
 
 echo $OUTPUT->header();
 

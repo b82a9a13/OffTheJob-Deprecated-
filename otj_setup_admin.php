@@ -15,7 +15,7 @@ $context = context_system::instance();
 require_capability('local/offthejob:manager', $context);
 
 use local_offthejob\lib;
-$lib = new lib;
+$lib = new lib();
 
 $userid = $_GET['userid'];
 $courseid = $_GET['courseid'];
@@ -27,12 +27,12 @@ if(empty($userid)){
         header("Location: ./admin.php");
     }
 }
-if(!preg_match("/^[0-9]*$/", $userid) || empty($userid)){
-    header("Location: ./admin.php");
-} elseif(!preg_match("/^[0-9]*$/", $courseid) || empty($courseid)){
+if(!preg_match("/^[0-9]*$/", $userid) || 
+    empty($userid) || 
+    !preg_match("/^[0-9]*$/", $courseid) || 
+    empty($courseid)) {
     header("Location: ./admin.php");
 }
-
 
 $username = $lib->get_username($userid);
 $coursename = $lib->get_coursename($courseid);
@@ -121,7 +121,5 @@ if(!empty($_SESSION['initialerror'])){
     echo("<h2 class='bold text-danger'>Invalid Inputs are highlighted in red!</h2>");
 }
 echo $OUTPUT->render_from_template('local_offthejob/admin_setup', $template);
-
-
 
 echo $OUTPUT->footer();

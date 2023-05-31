@@ -7,26 +7,24 @@
  */
 // Used for the learning plan
 
-//requirement and validation
+//requirement
 require_once(__DIR__.'/../../config.php');
 use local_offthejob\lib;
 require_login();
-$lib = new lib;
-
-$enrolss = $lib->get_enrolments();
-$context = context_course::instance($enrolss[0][2]);
-require_capability('local/offthejob:teacher', $context);
+$lib = new lib();
 
 //Validating the data from get method
 $userid = $_GET['userid'];
 $courseid = $_GET['courseid'];
-if(!preg_match("/^[0-9]*$/", $userid) || empty($userid)){
+if(!preg_match("/^[0-9]*$/", $userid) || 
+    empty($userid) || 
+    !preg_match("/^[0-9]*$/", $courseid) || 
+    empty($courseid)) {
     header('Location: ./teacher.php');
     exit();
-} elseif (!preg_match("/^[0-9]*$/", $courseid) || empty($courseid)){
-    header("Location: ./teacher.php");
-    exit();
 }
+$context = context_course::instance($courseid);
+require_capability('local/offthejob:teacher', $context);
 //get username and coursename
 $username = $lib->get_username($userid)->username;
 $coursename = $lib->get_coursename($courseid)->fullname;
@@ -35,6 +33,13 @@ $PAGE->set_context($context);
 $PAGE->set_url(new moodle_url('/local/offthejob/otj_plan.php'));
 $PAGE->set_title("Training Plan - $username - $coursename");
 $PAGE->set_heading("Training Plan - $username - $coursename");
+$PAGE->set_pagelayout('incourse');
+try{
+    $PAGE->set_course($lib->get_course_record($courseid));
+} catch(Exception $e){
+    header('Location: ./teacher.php');
+    exit();
+}
 
 //Echo data to page
 echo $OUTPUT->header();

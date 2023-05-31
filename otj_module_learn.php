@@ -14,10 +14,6 @@ use local_offthejob\lib;
 require_login();
 $lib = new lib();
 
-$array = $lib->learner_enrol();
-$context = context_course::instance($array[0][2]);
-require_capability('local/offthejob:student', $context);
-
 $array = $lib->get_current_user();
 $username = $lib->get_username($array[0]);
 $courseid = $_GET['courseid'];
@@ -25,11 +21,21 @@ if(!preg_match("/^[0-9]*$/", $courseid) || empty($courseid)){
     header("Location: ./learner.php");
     exit();
 }
+$context = context_course::instance($courseid);
+require_capability('local/offthejob:student', $context);
 $coursename = $lib->get_coursename($courseid);
+
 $PAGE->set_context($context);
 $PAGE->set_url(new moodle_url('/local/offthejob/otj_module_learn.php'));
 $PAGE->set_title('Module Completion - '.$username->username.' - '.$coursename->fullname);
 $PAGE->set_heading('Module Completion - '.$username->username.' - '.$coursename->fullname);
+$PAGE->set_pagelayout('incourse');
+try{
+    $PAGE->set_course($lib->get_course_record($courseid));
+} catch(Exception $e){
+    header("Location: ./learner.php");
+    exit();
+}
 
 echo $OUTPUT->header();
 

@@ -24,6 +24,7 @@ $PAGE->set_context($context);
 $PAGE->set_url(new moodle_url('/local/offthejob/learner.php'));
 $PAGE->set_title(get_string('otjt_title', 'local_offthejob'));
 $PAGE->set_heading(get_string('otjt_title', 'local_offthejob'));
+$PAGE->set_pagelayout('incourse');
 
 echo $OUTPUT->header();
 
